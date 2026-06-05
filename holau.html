@@ -287,4 +287,1228 @@
   .info-block p + p { margin-top: 8px; }
 
   /* ── FLIGHT TABLE ── */
-  .flight-table { width:
+  .flight-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .flight-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+    padding: 6px 10px; text-align: left;
+    border-bottom: 1px solid var(--light-border);
+  }
+  .flight-table td { padding: 8px 10px; border-bottom: 1px solid #f0ebe2; vertical-align: top; }
+  .flight-table tr:last-child td { border-bottom: none; }
+  .fly-yes { color: var(--yes); font-weight: 500; }
+  .fly-no { color: var(--no); }
+  .fly-conn { color: var(--partial); }
+
+  /* ── HIGHLIGHTS LIST ── */
+  .highlights-grid {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .highlight-tag {
+    background: var(--sand);
+    color: var(--charcoal);
+    font-size: 0.75rem;
+    font-weight: 400;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--light-border);
+  }
+
+  /* ── FAMILY FIT ── */
+  .family-fit-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+  }
+  .fit-card {
+    text-align: center; padding: 12px 6px;
+    background: var(--cream); border-radius: 8px;
+    border: 1px solid var(--light-border);
+  }
+  .fit-name {
+    font-size: 0.65rem; font-weight: 600;
+    color: var(--deep-green); margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .fit-score { font-size: 1.1rem; }
+
+  /* ── COST BREAKDOWN ── */
+  .cost-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 0; border-bottom: 1px solid #f0ebe2; font-size: 0.85rem;
+  }
+  .cost-row:last-child { border-bottom: none; }
+  .cost-row .label { color: var(--muted); font-size: 0.82rem; }
+  .cost-row .amount { font-weight: 500; color: var(--charcoal); }
+  .cost-row.total { padding-top: 12px; margin-top: 4px; border-top: 2px solid var(--light-border); border-bottom: none; }
+  .cost-row.total .label { font-weight: 600; color: var(--charcoal); font-size: 0.85rem; }
+  .cost-row.total .amount { font-weight: 700; color: var(--deep-green); font-size: 1rem; }
+
+  /* ── WARNING BOX ── */
+  .warning-box {
+    background: #fff8e7;
+    border: 1px solid #f0d080;
+    border-left: 4px solid var(--gold);
+    border-radius: 8px; padding: 14px 18px;
+    margin-top: 16px; font-size: 0.84rem; color: #5a4a1a;
+    line-height: 1.6;
+  }
+  .warning-box strong { color: #4a3a0a; }
+
+  /* ── DIVIDER ── */
+  .resort-divider {
+    border: none; border-top: 1px solid var(--light-border);
+    margin: 72px 0 0;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .comparison-wrapper { overflow-x: auto; margin-top: 8px; }
+  .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; min-width: 750px; }
+  .comparison-table th {
+    background: var(--deep-green); color: var(--sand);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem; letter-spacing: 0.2em;
+    text-transform: uppercase; padding: 10px 14px;
+    text-align: left; font-weight: 400;
+  }
+  .comparison-table th:first-child { min-width: 180px; }
+  .comparison-table td {
+    padding: 10px 14px; border-bottom: 1px solid var(--light-border);
+    vertical-align: middle;
+  }
+  .comparison-table tr:nth-child(even) td { background: var(--warm-white); }
+  .comparison-table tr:hover td { background: var(--sand); transition: background 0.15s; }
+  .ct-name { font-weight: 500; color: var(--charcoal); }
+  .ct-link { color: var(--forest); text-decoration: none; }
+  .ct-link:hover { text-decoration: underline; }
+  .dot-yes::before { content: '●'; color: var(--yes); margin-right: 4px; }
+  .dot-no::before { content: '●'; color: var(--no); margin-right: 4px; }
+  .dot-part::before { content: '●'; color: var(--partial); margin-right: 4px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal); color: rgba(247,243,236,0.5);
+    text-align: center; padding: 40px 20px;
+    font-size: 0.78rem; font-family: 'DM Mono', monospace;
+    letter-spacing: 0.12em;
+    line-height: 2;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE — LARGE TABLET (max 1024px)
+  ══════════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .main { padding: 52px 32px; }
+    .quick-stats { grid-template-columns: repeat(3, 1fr); }
+    .comparison-table { font-size: 0.76rem; }
+    .comparison-table th,
+    .comparison-table td { padding: 9px 11px; }
+  }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE — TABLET (max 768px)
+  ══════════════════════════════════════════ */
+  @media (max-width: 768px) {
+    /* Hero */
+    .hero { padding: 56px 24px 44px; }
+    .hero-eyebrow { font-size: 0.62rem; letter-spacing: 0.2em; }
+    .hero-sub { font-size: 0.88rem; }
+
+    /* Cast */
+    .cast-section { padding: 36px 24px; }
+    .cast-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+
+    /* Nav */
+    .sticky-nav { padding: 0 16px; }
+    .nav-link { font-size: 0.68rem; padding: 13px 12px; }
+
+    /* Main */
+    .main { padding: 40px 24px; }
+
+    /* Stats */
+    .quick-stats { grid-template-columns: repeat(3, 1fr); }
+
+    /* Resort grid stays 2-col on tablet */
+    .resort-grid { gap: 16px; }
+
+    /* Family fit — 3 cols on tablet */
+    .family-fit-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+    /* Comparison table — horizontal scroll on tablet */
+    .comparison-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .comparison-table { min-width: 800px; font-size: 0.75rem; }
+  }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE — MOBILE (max 600px)
+  ══════════════════════════════════════════ */
+  @media (max-width: 600px) {
+
+    /* Hero */
+    .hero { padding: 40px 18px 32px; }
+    .hero-eyebrow { font-size: 0.58rem; letter-spacing: 0.16em; }
+    .hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
+    .hero-sub { font-size: 0.8rem; line-height: 1.5; }
+
+    /* Cast */
+    .cast-section { padding: 28px 16px; }
+    .cast-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .cast-card { padding: 13px 12px; }
+    .cast-card .family-name { font-size: 0.95rem; }
+    .cast-card .members { font-size: 0.73rem; }
+
+    /* Window banner */
+    .window-banner { padding: 10px 16px; }
+    .window-banner p {
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      line-height: 1.9;
+    }
+
+    /* Nav — horizontally scrollable pill row */
+    .sticky-nav { padding: 0 12px; }
+    .nav-link { font-size: 0.62rem; padding: 11px 9px; letter-spacing: 0.04em; }
+
+    /* Main content */
+    .main { padding: 24px 16px; }
+    .resort { margin-bottom: 44px; scroll-margin-top: 52px; }
+    .resort-divider { margin: 44px 0 0; }
+
+    /* Section headers */
+    .section-header { flex-direction: column; gap: 4px; margin-bottom: 22px; padding-bottom: 12px; }
+    .section-title { font-size: 1.5rem; }
+    .section-note { font-size: 0.6rem; }
+
+    /* Resort header — stack vertically */
+    .resort-header { grid-template-columns: 1fr; gap: 10px; margin-bottom: 16px; }
+    .resort-badges { justify-content: flex-start; flex-wrap: wrap; gap: 5px; }
+    .resort-name { font-size: 1.45rem; line-height: 1.15; }
+    .resort-emoji { font-size: 1.15rem; margin-right: 7px; }
+    .resort-location { font-size: 0.6rem; margin-top: 5px; }
+
+    /* Quick stats — 2 columns on mobile */
+    .quick-stats { grid-template-columns: 1fr 1fr; }
+    .stat-cell { padding: 11px 10px; }
+    .stat-label { font-size: 0.53rem; letter-spacing: 0.14em; margin-bottom: 3px; }
+    .stat-value { font-size: 0.78rem; }
+    .stat-value.price { font-size: 0.82rem; }
+    .stat-value.small { font-size: 0.7rem; }
+
+    /* Resort info grid — single column */
+    .resort-grid { grid-template-columns: 1fr; gap: 10px; }
+    .info-block { padding: 15px 14px; }
+    .info-block h4 { font-size: 0.57rem; letter-spacing: 0.18em; margin-bottom: 10px; padding-bottom: 7px; }
+    .info-block p { font-size: 0.83rem; }
+
+    /* Flight table — tighten */
+    .flight-table { font-size: 0.74rem; }
+    .flight-table th { font-size: 0.52rem; padding: 5px 6px; }
+    .flight-table td { padding: 7px 6px; font-size: 0.73rem; }
+
+    /* Family fit — 3 cols on mobile */
+    .family-fit-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .fit-card { padding: 9px 5px; }
+    .fit-name { font-size: 0.56rem; }
+    .fit-score { font-size: 0.88rem; }
+
+    /* Cost rows — stack label above amount */
+    .cost-row { flex-direction: column; align-items: flex-start; gap: 1px; padding: 9px 0; }
+    .cost-row .label { font-size: 0.75rem; flex: unset; }
+    .cost-row .amount { font-size: 0.8rem; padding-left: 0; }
+    .cost-row.total { flex-direction: row; align-items: center; }
+    .cost-row.total .label { font-size: 0.82rem; }
+
+    /* Highlights */
+    .highlight-tag { font-size: 0.68rem; padding: 4px 9px; }
+
+    /* Badges */
+    .badge { font-size: 0.58rem; padding: 3px 8px; }
+
+    /* Warning box */
+    .warning-box { font-size: 0.78rem; padding: 12px 13px; line-height: 1.55; }
+
+    /* Closing note section */
+    .closing-note {
+      padding: 28px 20px !important;
+      border-radius: 12px !important;
+    }
+    .closing-note p:first-child { font-size: 1.3rem !important; }
+    .closing-note p:nth-child(2) { font-size: 0.84rem !important; }
+
+    /* Footer */
+    footer { padding: 28px 16px; font-size: 0.65rem; letter-spacing: 0.08em; }
+  }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE — SMALL MOBILE (max 400px)
+  ══════════════════════════════════════════ */
+  @media (max-width: 400px) {
+    .cast-grid { grid-template-columns: 1fr; }
+    .quick-stats { grid-template-columns: 1fr 1fr; }
+    .family-fit-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero h1 { font-size: 2rem; }
+    .resort-name { font-size: 1.3rem; }
+    .nav-link { font-size: 0.58rem; padding: 10px 8px; }
+  }
+
+  /* ══════════════════════════════════════════
+     COMPARISON TABLE — mobile card layout
+     Replaces wide table with stacked cards < 700px
+  ══════════════════════════════════════════ */
+  @media (max-width: 700px) {
+    .comparison-wrapper { overflow-x: visible; }
+
+    .comparison-table thead { display: none; }
+
+    .comparison-table,
+    .comparison-table tbody,
+    .comparison-table tr,
+    .comparison-table td {
+      display: block;
+      width: 100%;
+    }
+
+    .comparison-table tr {
+      background: var(--warm-white);
+      border: 1px solid var(--light-border);
+      border-radius: 10px;
+      margin-bottom: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .comparison-table tr:nth-child(even) td { background: transparent; }
+    .comparison-table tr:hover td { background: transparent; }
+
+    .comparison-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0ebe2;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .comparison-table td:last-child { border-bottom: none; }
+
+    /* Data label injected via ::before */
+    .comparison-table td::before {
+      content: attr(data-label);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.54rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 72px;
+      padding-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* First cell (resort name) — full-width header */
+    .comparison-table td:first-child {
+      background: var(--deep-green);
+      color: var(--sand);
+      padding: 14px 16px;
+      display: block;
+    }
+    .comparison-table td:first-child::before { display: none; }
+    .comparison-table td:first-child .ct-name { color: var(--warm-white); font-size: 0.97rem; display: block; margin-bottom: 2px; }
+    .comparison-table td:first-child small { color: rgba(232,223,201,0.65); font-size: 0.72rem; }
+    .comparison-table td:first-child a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Family Reunion Trip Planner · Late August 2027</p>
+    <h1>The <em>Lau</em> Family<br>Vacation Shortlist</h1>
+    <p class="hero-sub">5 families · 15 people · Multi-generational · Mobility-aware · Bougie but not baller</p>
+  </div>
+</header>
+
+<!-- CAST -->
+<section class="cast-section">
+  <div class="cast-inner">
+    <p class="cast-heading">The Cast</p>
+    <div class="cast-grid">
+      <div class="cast-card">
+        <div class="family-name">The Laus</div>
+        <div class="members">Senior couple<br>Retirement age</div>
+        <span class="tag">Seniors · Mobility</span>
+      </div>
+      <div class="cast-card">
+        <div class="family-name">The KimLaus</div>
+        <div class="members">Couple, early 30s<br>+ 4-year-old</div>
+        <span class="tag">Young Family</span>
+      </div>
+      <div class="cast-card">
+        <div class="family-name">The HanaokaLaus</div>
+        <div class="members">Couple, early 30s<br>+ 1 infant + 2-year-old</div>
+        <span class="tag">Young Family · Baby</span>
+      </div>
+      <div class="cast-card">
+        <div class="family-name">The HoFrancis</div>
+        <div class="members">Senior couple<br>Retirement age</div>
+        <span class="tag">Seniors · Mobility</span>
+      </div>
+      <div class="cast-card">
+        <div class="family-name">The Ho's</div>
+        <div class="members">Senior couple<br>+ 2 adult children (late 20s–30s)</div>
+        <span class="tag">Mixed · Bar Access ✦</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WINDOW BANNER -->
+<div class="window-banner">
+  <p>🗓 Travel Window: <strong>Late August 2027 · ~7 Nights</strong> &nbsp;|&nbsp; ✗ No January &nbsp;|&nbsp; ✗ No Easter</p>
+</div>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a class="nav-link" href="#disney-cruise">Disney Cruise</a>
+    <a class="nav-link" href="#disney-world">Disney World</a>
+    <a class="nav-link" href="#brush-creek">Brush Creek</a>
+    <a class="nav-link" href="#coeur-dalene">Coeur d'Alene</a>
+    <a class="nav-link" href="#half-moon">Half Moon Jamaica</a>
+    <a class="nav-link" href="#generations">Generations Riviera</a>
+    <a class="nav-link" href="#hyatt-ziva">Hyatt Ziva</a>
+    <a class="nav-link" href="#dreams">Dreams Puerto Morelos</a>
+    <a class="nav-link" href="#compare">Compare All</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- ════════════════════════════════ RESORT 1 ════ -->
+<section class="resort" id="disney-cruise">
+  <div class="resort-header">
+    <div class="resort-title-group">
+      <div><span class="resort-emoji">🚢</span><span class="resort-name">Disney Cruise Line</span></div>
+      <div class="resort-location">Disney Fantasy / Treasure · Caribbean / Bahamas · Port Canaveral, FL</div>
+    </div>
+    <div class="resort-badges">
+      <span class="badge badge-ai">Functionally All-Inclusive</span>
+      <span class="badge badge-points">Chase/Amex Eligible</span>
+    </div>
+  </div>
+
+  <div class="quick-stats">
+    <div class="stat-cell"><div class="stat-label">Est. Per Person</div><div class="stat-value price">$1,600–$3,000</div></div>
+    <div class="stat-cell"><div class="stat-label">Total (15 ppl)</div><div class="stat-value price">$24K–$45K</div></div>
+    <div class="stat-cell"><div class="stat-label">Best Season</div><div class="stat-value small">Late Aug (off-peak)<br>Jan–Mar (ideal)</div></div>
+    <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">7-Night</div></div>
+    <div class="stat-cell"><div class="stat-label">Nearest Port</div><div class="stat-value small">Port Canaveral or Ft. Lauderdale</div></div>
+    <div class="stat-cell"><div class="stat-label">All-Inclusive?</div><div class="stat-value" style="color:var(--partial)">Mostly ✓</div></div>
+  </div>
+
+  <div class="resort-grid">
+    <div class="info-block">
+      <h4>About</h4>
+      <p>For summer 2027, the <strong>Disney Fantasy</strong> sails 4–5 night Caribbean routes from Port Canaveral, and the <strong>Disney Treasure</strong> runs 7-night Eastern/Western Caribbean. The brand-new <strong>Disney Believe</strong> (Wish-class) joins the fleet in 2027. Disney Wish is repositioning to Europe in summer 2027, so the Florida fleet for late August will be Fantasy, Treasure, Dream, and Destiny.</p>
+      <p>Book <strong>Concierge Level</strong> for the senior couples — dedicated lounge, butler service, private sun deck, and priority embarkation/disembarkation.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>Flights to Port Canaveral / MCO</h4>
+      <table class="flight-table">
+        <tr><th>Origin</th><th>Nonstop?</th><th>Time</th></tr>
+        <tr><td><strong>LAX</strong> / SNA</td><td class="fly-yes">✓ Many nonstops</td><td>~5h to MCO</td></tr>
+        <tr><td><strong>ORD</strong></td><td class="fly-yes">✓ Nonstop</td><td>~3h to MCO</td></tr>
+        <tr><td><strong>BOS</strong></td><td class="fly-yes">✓ Nonstop</td><td>~3h to MCO</td></tr>
+      </table>
+      <p style="margin-top:10px; font-size:0.8rem; color:var(--muted)">✦ Best logistics of all options. All 3 cities fly nonstop to Orlando. MCO to Port Canaveral is ~1hr by shuttle/rideshare.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>What's Included</h4>
+      <div class="cost-row"><span class="label">All main dining (rotational restaurants)</span><span class="amount" style="color:var(--yes)">✓ Included</span></div>
+      <div class="cost-row"><span class="label">Kids clubs (Oceaneer Club, It's a Small World Nursery)</span><span class="amount" style="color:var(--yes)">✓ Included</span></div>
+      <div class="cost-row"><span class="label">Broadway-style shows, deck parties</span><span class="amount" style="color:var(--yes)">✓ Included</span></div>
+      <div class="cost-row"><span class="label">Concierge lounge food &amp; drinks (concierge only)</span><span class="amount" style="color:var(--yes)">✓ Included</span></div>
+      <div class="cost-row"><span class="label">Specialty dining (Palo, Enchante, Remy)</span><span class="amount" style="color:var(--partial)">~$50–$125/pp</span></div>
+      <div class="cost-row"><span class="label">Alcohol (non-concierge guests)</span><span class="amount" style="color:var(--partial)">Extra</span></div>
+      <div class="cost-row"><span class="label">Shore excursions</span><span class="amount" style="color:var(--partial)">Extra</span></div>
+    </div>
+
+    <div class="info-block">
+      <h4>Family Fit</h4>
+      <div class="family-fit-grid">
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+      </div>
+      <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">✦ Adult kids: The District nightclub district runs late. Adults-only pool + bar. Solid but not a nightlife destination.</p>
+    </div>
+
+    <div class="info-block full">
+      <h4>✦ What Makes It Special</h4>
+      <div class="highlights-grid">
+        <span class="highlight-tag">🏰 Immersive themed dining (Frozen, Star Wars, Marvel)</span>
+        <span class="highlight-tag">👶 World-class baby/toddler nursery (free)</span>
+        <span class="highlight-tag">♿ ADA-accessible throughout</span>
+        <span class="highlight-tag">🎭 Broadway-style shows nightly</span>
+        <span class="highlight-tag">🏝 Private island stop (Castaway Cay / Lookout Cay)</span>
+        <span class="highlight-tag">🥂 Concierge lounge w/ butler</span>
+        <span class="highlight-tag">🍸 Adults-only pool + bar</span>
+        <span class="highlight-tag">👑 Cinderella staircase atrium</span>
+        <span class="highlight-tag">🎠 AquaMouse water coaster (Wish-class)</span>
+        <span class="highlight-tag">🚢 Zero logistics — ship does everything</span>
+      </div>
+      <div class="warning-box">
+        <strong>Late August Note:</strong> Late August is off-peak for Disney cruising — you'll get better rates than peak summer but still great weather in the Bahamas/Caribbean. The Disney Fantasy and Treasure will be in Caribbean rotation in summer 2027. Disney Wish moves to Europe for summer 2027, so plan for Fantasy or Treasure for the Caribbean experience.
+      </div>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; margin-top:8px;"><a href="https://disneycruise.disney.go.com" target="_blank" style="color:var(--forest)">→ disneycruise.disney.go.com</a></p>
+</section><hr class="resort-divider">
+
+<!-- ════════════════════════════════ RESORT 2 ════ -->
+<section class="resort" id="disney-world" style="padding-top:60px">
+  <div class="resort-header">
+    <div class="resort-title-group">
+      <div><span class="resort-emoji">🏰</span><span class="resort-name">Disney World — Grand Floridian / Polynesian</span></div>
+      <div class="resort-location">Walt Disney World Resort · Lake Buena Vista, FL</div>
+    </div>
+    <div class="resort-badges">
+      <span class="badge badge-noai">Not All-Inclusive</span>
+      <span class="badge badge-points">Disney Vacation Club</span>
+    </div>
+  </div>
+
+  <div class="quick-stats">
+    <div class="stat-cell"><div class="stat-label">Est. Per Person</div><div class="stat-value price">$2,500–$5,000+</div></div>
+    <div class="stat-cell"><div class="stat-label">Total (15 ppl)</div><div class="stat-value price">$37K–$75K+</div></div>
+    <div class="stat-cell"><div class="stat-label">Best Season</div><div class="stat-value small">Late Aug (crowds lower<br>than peak summer)</div></div>
+    <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">6–8 Nights</div></div>
+    <div class="stat-cell"><div class="stat-label">Nearest Airport</div><div class="stat-value small">MCO (Orlando)</div></div>
+    <div class="stat-cell"><div class="stat-label">All-Inclusive?</div><div class="stat-value" style="color:var(--no)">No</div></div>
+  </div>
+
+  <div class="resort-grid">
+    <div class="info-block">
+      <h4>Grand Floridian</h4>
+      <p>Disney's flagship Victorian resort on the Magic Kingdom monorail loop. White-and-gold architecture, a 5-story Grand Lobby with a live orchestra, Cinderella's Castle visible from the shore. Club Level concierge offers dedicated lounge with food &amp; drinks around the clock. Best for the senior couples who want pure elegance.</p>
+      <p style="margin-top:8px;"><a href="https://disneyworld.disney.go.com/resorts/grand-floridian-resort-and-spa/" target="_blank" style="color:var(--forest); font-size:0.82rem">→ Official page</a></p>
+    </div>
+    <div class="info-block">
+      <h4>Polynesian Village Resort</h4>
+      <p>South Pacific longhouse theming on the monorail, with volcano-themed pool, Trader Sam's Grog Grotto (late-night bar), and direct beach views of the Magic Kingdom. A strong pick for families with little ones — the atmosphere is warm, tropical, and magical without being overwhelming. Also on the monorail loop.</p>
+      <p style="margin-top:8px;"><a href="https://disneyworld.disney.go.com/resorts/polynesian-village-resort/" target="_blank" style="color:var(--forest); font-size:0.82rem">→ Official page</a></p>
+    </div>
+
+    <div class="info-block">
+      <h4>Flights to MCO</h4>
+      <table class="flight-table">
+        <tr><th>Origin</th><th>Nonstop?</th><th>Time</th></tr>
+        <tr><td><strong>LAX</strong> / SNA</td><td class="fly-yes">✓ Nonstop (many airlines)</td><td>~5h</td></tr>
+        <tr><td><strong>ORD</strong></td><td class="fly-yes">✓ Nonstop</td><td>~3h</td></tr>
+        <tr><td><strong>BOS</strong></td><td class="fly-yes">✓ Nonstop</td><td>~3h</td></tr>
+      </table>
+      <p style="margin-top:10px; font-size:0.8rem; color:var(--muted)">Complimentary Disney Magical Express (or similar) connects MCO to resort. No car needed — monorail + resort buses cover everything.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>Add-On Cost Estimates</h4>
+      <div class="cost-row"><span class="label">Park tickets (7-day, per adult)</span><span class="amount">~$700–$900</span></div>
+      <div class="cost-row"><span class="label">Dining plan (optional, per adult/day)</span><span class="amount">~$80–$120</span></div>
+      <div class="cost-row"><span class="label">Genie+ / Lightning Lane (per day)</span><span class="amount">~$30–$50/pp</span></div>
+      <div class="cost-row"><span class="label">Signature dining (ex. Narcoossee's, Citricos)</span><span class="amount">~$80–$150/pp</span></div>
+      <div class="cost-row total"><span class="label">Extras per adult, 7 nights</span><span class="amount">+$900–$1,500</span></div>
+    </div>
+
+    <div class="info-block full">
+      <h4>✦ What Makes It Special</h4>
+      <div class="highlights-grid">
+        <span class="highlight-tag">🏨 Monorail access to Magic Kingdom (no bus)</span>
+        <span class="highlight-tag">🌊 Grand Floridian beach + fireworks view nightly</span>
+        <span class="highlight-tag">🌺 Polynesian: Volcano pool + Trader Sam's bar</span>
+        <span class="highlight-tag">👑 Club Level concierge lounge (food/drinks all day)</span>
+        <span class="highlight-tag">♿ Extremely accessible — Disney is best-in-class</span>
+        <span class="highlight-tag">👶 Babies welcome everywhere, stroller rentals in parks</span>
+        <span class="highlight-tag">🎠 Magic Kingdom fireworks from resort beach</span>
+        <span class="highlight-tag">🚝 Monorail bar car (adults only, seasonal)</span>
+        <span class="highlight-tag">🧜 Character dining (breakfast with princesses, etc.)</span>
+      </div>
+      <div class="warning-box">
+        <strong>Late August Consideration:</strong> Florida in late August is hot (90°F+) and humid with frequent afternoon thunderstorms. Parks can still be crowded as school hasn't fully resumed everywhere. That said, Disney World is fully indoor-/shade-accessible and the resort pools and Club Level lounges provide great refuges. This is the most expensive option once parks, dining, and extras are added.
+      </div>
+    </div>
+  </div>
+</section><hr class="resort-divider">
+
+<!-- ════════════════════════════════ RESORT 3 ════ -->
+<section class="resort" id="brush-creek" style="padding-top:60px">
+  <div class="resort-header">
+    <div class="resort-title-group">
+      <div><span class="resort-emoji">🤠</span><span class="resort-name">Brush Creek Ranch</span></div>
+      <div class="resort-location">Saratoga, Wyoming · 30,000 Acres · Forbes 5-Star</div>
+    </div>
+    <div class="resort-badges">
+      <span class="badge badge-ai">Truly All-Inclusive</span>
+      <span class="badge badge-points">Amex FHR Eligible</span>
+    </div>
+  </div>
+
+  <div class="quick-stats">
+    <div class="stat-cell"><div class="stat-label">Est. Per Person</div><div class="stat-value price">$2,900–$4,200</div></div>
+    <div class="stat-cell"><div class="stat-label">Total (15 ppl)</div><div class="stat-value price">$43K–$63K</div></div>
+    <div class="stat-cell"><div class="stat-label">Best Season</div><div class="stat-value small">Late Aug–Sept<br>(Peak/Golden)</div></div>
+    <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">5–7 Nights</div></div>
+    <div class="stat-cell"><div class="stat-label">Nearest Airport</div><div class="stat-value small">DEN (199mi)<br>LAR (60mi)</div></div>
+    <div class="stat-cell"><div class="stat-label">All-Inclusive?</div><div class="stat-value" style="color:var(--yes)">✓ Yes (meals + booze + activities)</div></div>
+  </div>
+
+  <div class="resort-grid">
+    <div class="info-block">
+      <h4>About</h4>
+      <p>Consistently ranked #1 resort in America by Condé Nast Traveler. Set on 30,000 private acres in Wyoming's North Platte River Valley between the Sierra Madre mountains and Medicine Bow National Forest. Luxury log cabins with Egyptian linens, a Forbes 5-Star spa, an on-site distillery, goat creamery, and 100% American Wagyu beef sourced on property.</p>
+      <p style="margin-top:8px;">All-inclusive rate covers gourmet meals, all alcoholic beverages (including from the award-winning distillery), and two daily activities. No surprise bills.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>Flights to Denver (DEN)</h4>
+      <table class="flight-table">
+        <tr><th>Origin</th><th>Nonstop?</th><th>Notes</th></tr>
+        <tr><td><strong>LAX</strong> / SNA</td><td class="fly-yes">✓ Many nonstops</td><td>~2.5h · then 3.5h drive</td></tr>
+        <tr><td><strong>ORD</strong></td><td class="fly-yes">✓ Nonstop</td><td>~2.5h · then 3.5h drive</td></tr>
+        <tr><td><strong>BOS</strong></td><td class="fly-yes">✓ Nonstop</td><td>~4.5h · then 3.5h drive</td></tr>
+      </table>
+      <p style="margin-top:10px; font-size:0.8rem; color:var(--muted)">Fly into Denver, rent 2–3 SUVs, make the scenic drive through the Snowy Range part of the trip. Private charter to Saratoga (SAA) also available.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>All-Inclusive Breakdown</h4>
+      <div class="cost-row"><span class="label">All meals (gourmet, farm-to-table)</span><span class="amount" style="color:var(--yes)">✓ Included</span></div>
+      <div class="cost-row"><span class="label">All alcoholic beverages (distillery + wine cellar top-10 globally)</span><span class="amount" style="color:var(--yes)">✓ Included</span></div>
+      <div class="cost-row"><span class="label">2 daily activities (horseback, fly-fishing, archery, etc.)</span><span class="amount" style="color:var(--yes)">✓ Included</span></div>
+      <div class="cost-row"><span class="label">Spa treatments</span><span class="amount" style="color:var(--partial)">Extra</span></div>
+      <div class="cost-row"><span class="label">Private skiing (Green Mountain snowcat — winter only)</span><span class="amount" style="color:var(--partial)">Extra</span></div>
+    </div>
+
+    <div class="info-block">
+      <h4>Family Fit</h4>
+      <div class="family-fit-grid">
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+      </div>
+      <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">✦ Mobility note: Lodge rooms recommended for seniors over outlying cabins. Cabin guests need transport at night. ADA-accessible cabins available.</p>
+    </div>
+
+    <div class="info-block full">
+      <h4>✦ What Makes It Special</h4>
+      <div class="highlights-grid">
+        <span class="highlight-tag">🐴 Horseback riding on 30,000 acres</span>
+        <span class="highlight-tag">🎣 Private fly-fishing (20+ miles exclusive river access)</span>
+        <span class="highlight-tag">🥃 On-site distillery (booze included)</span>
+        <span class="highlight-tag">🧀 Goat creamery + greenhouse on property</span>
+        <span class="highlight-tag">🥩 100% American Wagyu beef, raised on ranch</span>
+        <span class="highlight-tag">⭐ Forbes 5-Star + Condé Nast #1 resort USA</span>
+        <span class="highlight-tag">🏹 Archery, shooting range, e-bikes, llama hikes</span>
+        <span class="highlight-tag">🛁 Luxury log cabins w/ Egyptian linens</span>
+        <span class="highlight-tag">🌌 Stargazing under dark Wyoming skies</span>
+        <span class="highlight-tag">🍽 Mountaintop sunset picnics + chuckwagon BBQs</span>
+        <span class="highlight-tag">✦ Zero extra bills — all in one rate</span>
+      </div>
+      <div class="warning-box">
+        <strong>Late August is peak season</strong> at Brush Creek — the best possible time to go. Wildflowers, golden light, warm days and cool nights. Book 9–12 months ahead as this property fills up fast. The Denver drive (3.5h) through the Snowy Range is genuinely scenic — treat it as part of the trip.
+      </div>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; margin-top:8px;"><a href="https://www.brushcreekranch.com" target="_blank" style="color:var(--forest)">→ brushcreekranch.com</a></p>
+</section><hr class="resort-divider">
+
+<!-- ════════════════════════════════ RESORT 4 ════ -->
+<section class="resort" id="coeur-dalene" style="padding-top:60px">
+  <div class="resort-header">
+    <div class="resort-title-group">
+      <div><span class="resort-emoji">🏔️</span><span class="resort-name">The Coeur d'Alene Resort</span></div>
+      <div class="resort-location">Coeur d'Alene, Idaho · Lakefront · IHG Property</div>
+    </div>
+    <div class="resort-badges">
+      <span class="badge badge-noai">Not All-Inclusive</span>
+      <span class="badge badge-points">IHG Points Eligible</span>
+    </div>
+  </div>
+
+  <div class="quick-stats">
+    <div class="stat-cell"><div class="stat-label">Est. Per Person</div><div class="stat-value price">$1,800–$3,000</div></div>
+    <div class="stat-cell"><div class="stat-label">Total (15 ppl)</div><div class="stat-value price">$27K–$45K</div></div>
+    <div class="stat-cell"><div class="stat-label">Best Season</div><div class="stat-value small">July–Sept<br>(Lake Season)</div></div>
+    <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">6–7 Nights</div></div>
+    <div class="stat-cell"><div class="stat-label">Nearest Airport</div><div class="stat-value small">GEG Spokane<br>(40 min drive)</div></div>
+    <div class="stat-cell"><div class="stat-label">All-Inclusive?</div><div class="stat-value" style="color:var(--no)">No</div></div>
+  </div>
+
+  <div class="resort-grid">
+    <div class="info-block">
+      <h4>About</h4>
+      <p>A Condé Nast and Newsweek #1 waterfront hotel, set on the north shore of Lake Coeur d'Alene in the Idaho panhandle. 338 rooms and suites, most with private lake-view balconies. Features a European full-service spa, marina, the world's only floating golf green, and multiple restaurants right on the lake. A genuinely underrated gem — spectacular for late August lakeside weather.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>Flights to Spokane (GEG)</h4>
+      <table class="flight-table">
+        <tr><th>Origin</th><th>Nonstop?</th><th>Time</th></tr>
+        <tr><td><strong>LAX</strong> / SNA</td><td class="fly-yes">✓ Nonstop (Alaska, Delta)</td><td>~2.5h · then 40min drive</td></tr>
+        <tr><td><strong>ORD</strong></td><td class="fly-yes">✓ Nonstop (United, Alaska)</td><td>~3.5h · then 40min drive</td></tr>
+        <tr><td><strong>BOS</strong></td><td class="fly-conn">1 stop (SEA or SFO)</td><td>~7–8h total</td></tr>
+      </table>
+      <p style="margin-top:10px; font-size:0.8rem; color:var(--muted)">Resort offers group limo van transportation from Spokane. Boston travelers will have one connection — manageable but worth noting.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>Add-On Cost Estimates / Night</h4>
+      <div class="cost-row"><span class="label">Room rate (lake view)</span><span class="amount">$350–$600/night</span></div>
+      <div class="cost-row"><span class="label">Dining (3 meals/day, est.)</span><span class="amount">~$100–$150/pp/day</span></div>
+      <div class="cost-row"><span class="label">Watersports, golf (optional)</span><span class="amount">~$50–$150/activity</span></div>
+      <div class="cost-row"><span class="label">Spa treatments</span><span class="amount">~$120–$250/session</span></div>
+      <div class="cost-row total"><span class="label">Est. per person / week</span><span class="amount">$1,800–$3,000</span></div>
+    </div>
+
+    <div class="info-block">
+      <h4>Accessibility &amp; Family Fit</h4>
+      <div class="family-fit-grid">
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+      </div>
+      <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">ADA accessible rooms available. High-rise hotel = elevators everywhere. Childcare with 24hr notice. Private in-room babysitting.</p>
+    </div>
+
+    <div class="info-block full">
+      <h4>✦ What Makes It Special</h4>
+      <div class="highlights-grid">
+        <span class="highlight-tag">⛵ World's only movable floating golf green</span>
+        <span class="highlight-tag">🛥 Private beach + marina + water taxi</span>
+        <span class="highlight-tag">♿ Full ADA accessibility</span>
+        <span class="highlight-tag">👶 On-site childcare (24hr notice)</span>
+        <span class="highlight-tag">🏔 Mountain + lake views from every room</span>
+        <span class="highlight-tag">🚤 Kayaks, paddleboards, boat rentals</span>
+        <span class="highlight-tag">💅 Full European spa</span>
+        <span class="highlight-tag">🎿 Silver Mountain ski resort 45min away</span>
+        <span class="highlight-tag">🌊 Seasonal outdoor infinity pool (water taxi ride)</span>
+        <span class="highlight-tag">💳 IHG Spire/Diamond points redemption</span>
+        <span class="highlight-tag">🏆 Condé Nast Best Resort in Idaho</span>
+        <span class="highlight-tag">💰 Best value luxury on this list</span>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; margin-top:8px;"><a href="https://www.cdaresort.com" target="_blank" style="color:var(--forest)">→ cdaresort.com</a></p>
+</section><hr class="resort-divider">
+
+<!-- ════════════════════════════════ RESORT 5 ════ -->
+<section class="resort" id="half-moon" style="padding-top:60px">
+  <div class="resort-header">
+    <div class="resort-title-group">
+      <div><span class="resort-emoji">🇯🇲</span><span class="resort-name">Half Moon — Eclipse &amp; Rose Hall Villas</span></div>
+      <div class="resort-location">Montego Bay, Jamaica · Salamander Collection · 400 Acres</div>
+    </div>
+    <div class="resort-badges">
+      <span class="badge badge-partial">Partial (Villa staff incl.)</span>
+      <span class="badge badge-points">Amex FHR Eligible</span>
+      <span class="badge badge-warning">⚠ Hurricane Season Aug</span>
+    </div>
+  </div>
+
+  <div class="quick-stats">
+    <div class="stat-cell"><div class="stat-label">Est. Per Person</div><div class="stat-value price">$2,200–$3,700</div></div>
+    <div class="stat-cell"><div class="stat-label">Total (15 ppl)</div><div class="stat-value price">$33K–$55K</div></div>
+    <div class="stat-cell"><div class="stat-label">Best Season</div><div class="stat-value small">Dec–Apr (ideal)<br>Late Aug (risk)</div></div>
+    <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">7 Nights</div></div>
+    <div class="stat-cell"><div class="stat-label">Nearest Airport</div><div class="stat-value small">MBJ Montego Bay<br>(12 min drive)</div></div>
+    <div class="stat-cell"><div class="stat-label">All-Inclusive?</div><div class="stat-value" style="color:var(--partial)">Partial — meals extra</div></div>
+  </div>
+
+  <div class="resort-grid">
+    <div class="info-block">
+      <h4>About</h4>
+      <p>Jamaica's most storied luxury resort — open for over 70 years, recently renovated and reopened April 2026 under Salamander Collection management after Hurricane Melissa. Set on 400 acres with two miles of private beachfront. Three distinct experiences: Eclipse (57 luxury beachfront rooms), Founders Cove (10 cottages), and the Rose Hall Villas (5–7 bedroom private villas).</p>
+      <p style="margin-top:8px;"><strong>The play for your group:</strong> Book one 7-bedroom Rose Hall Villa (~14–16 guests) with private pool, butler, housekeeper, and personal cook. Your entire group in one compound.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>Flights to Montego Bay (MBJ)</h4>
+      <table class="flight-table">
+        <tr><th>Origin</th><th>Nonstop?</th><th>Time</th></tr>
+        <tr><td><strong>LAX</strong></td><td class="fly-conn">1 stop (usually MIA)</td><td>~7–8h total</td></tr>
+        <tr><td><strong>SNA</strong></td><td class="fly-conn">1 stop</td><td>~8h total</td></tr>
+        <tr><td><strong>ORD</strong></td><td class="fly-yes">✓ Nonstop (AA, United)</td><td>~4h</td></tr>
+        <tr><td><strong>BOS</strong></td><td class="fly-yes">✓ Nonstop (JetBlue)</td><td>~3.5h</td></tr>
+      </table>
+      <p style="margin-top:10px; font-size:0.8rem; color:var(--muted)">ORD and BOS win here. LA has a one-stop connection — manageable. MBJ airport is only 12 minutes from the resort.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>Included vs. Extra</h4>
+      <div class="cost-row"><span class="label">Private butler + housekeeper + cook</span><span class="amount" style="color:var(--yes)">✓ Included in villa</span></div>
+      <div class="cost-row"><span class="label">2 golf carts per villa</span><span class="amount" style="color:var(--yes)">✓ Included</span></div>
+      <div class="cost-row"><span class="label">Resort fee (WiFi, tennis, pickleball, water sports, fitness)</span><span class="amount" style="color:var(--yes)">✓ Included</span></div>
+      <div class="cost-row"><span class="label">Nurse's station on property</span><span class="amount" style="color:var(--yes)">✓ Included</span></div>
+      <div class="cost-row"><span class="label">All meals (cook prepares, food cost separate)</span><span class="amount" style="color:var(--partial)">Food costs extra (~$150–$250/pp/day)</span></div>
+      <div class="cost-row"><span class="label">Golf, spa, horseback riding</span><span class="amount" style="color:var(--partial)">Extra</span></div>
+    </div>
+
+    <div class="info-block">
+      <h4>Family Fit</h4>
+      <div class="family-fit-grid">
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+      </div>
+      <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">Private villa cook handles baby food, dietary needs. Flat resort grounds. Golf carts for mobility. Rum bar for adults. Nurse's station on property — great for seniors.</p>
+    </div>
+
+    <div class="info-block full">
+      <h4>✦ What Makes It Special</h4>
+      <div class="highlights-grid">
+        <span class="highlight-tag">🏡 Private 7BR villa: 1 compound for whole group</span>
+        <span class="highlight-tag">🧑‍🍳 Private chef + butler + housekeeper</span>
+        <span class="highlight-tag">🏊 Private pool in villa compound</span>
+        <span class="highlight-tag">🐎 Equestrian center — ride on the beach</span>
+        <span class="highlight-tag">⛳ Robert Trent Jones Sr. golf course (Caribbean Augusta)</span>
+        <span class="highlight-tag">🥃 Eclipse bar: best rum collection in Caribbean</span>
+        <span class="highlight-tag">🧖 Fern Tree Salamander Spa</span>
+        <span class="highlight-tag">🏖 2 miles of private beachfront</span>
+        <span class="highlight-tag">🏥 On-site nurse's station</span>
+        <span class="highlight-tag">🛺 Golf carts included for mobility</span>
+        <span class="highlight-tag">🌊 Swimming lagoons + water sports</span>
+        <span class="highlight-tag">✦ 70-year legacy resort — staff know your name</span>
+      </div>
+      <div class="warning-box">
+        <strong>⚠ Hurricane Season Alert:</strong> Late August is peak Atlantic hurricane season. Half Moon just reopened in April 2026 after Hurricane Melissa hit Jamaica in October 2025. This is a real but manageable risk — historically the probability of a direct hit in any single week is low, but it exists. <strong>Cancel-for-any-reason (CFAR) travel insurance is non-negotiable</strong> if you choose this option for late August. Consider shifting this trip to December–April for the optimal Half Moon experience.
+      </div>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; margin-top:8px;"><a href="https://www.halfmoon.com" target="_blank" style="color:var(--forest)">→ halfmoon.com</a></p>
+</section><hr class="resort-divider">
+
+<!-- ════════════════════════════════ RESORT 6 ════ -->
+<section class="resort" id="generations" style="padding-top:60px">
+  <div class="resort-header">
+    <div class="resort-title-group">
+      <div><span class="resort-emoji">🌴</span><span class="resort-name">Generations Riviera Maya</span></div>
+      <div class="resort-location">Riviera Maya, Mexico · by Karisma · All-Suites Oceanfront</div>
+    </div>
+    <div class="resort-badges">
+      <span class="badge badge-ai">Gourmet All-Inclusive</span>
+      <span class="badge badge-warning">⚠ Rocky Beach</span>
+    </div>
+  </div>
+
+  <div class="quick-stats">
+    <div class="stat-cell"><div class="stat-label">Est. Per Person</div><div class="stat-value price">$1,100–$1,800</div></div>
+    <div class="stat-cell"><div class="stat-label">Total (15 ppl)</div><div class="stat-value price">$16K–$27K</div></div>
+    <div class="stat-cell"><div class="stat-label">Best Season</div><div class="stat-value small">Late Aug (hot,<br>shoulder pricing)</div></div>
+    <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">7 Nights</div></div>
+    <div class="stat-cell"><div class="stat-label">Nearest Airport</div><div class="stat-value small">CUN Cancún<br>(25 min)</div></div>
+    <div class="stat-cell"><div class="stat-label">All-Inclusive?</div><div class="stat-value" style="color:var(--yes)">✓ Gourmet Inclusive®</div></div>
+  </div>
+
+  <div class="resort-grid">
+    <div class="info-block">
+      <h4>About</h4>
+      <p>Purpose-built for multigenerational travel by Karisma Hotels. All 162 suites are oceanfront — no bad rooms. Every suite has a Jacuzzi tub and private balcony; ground-floor suites have swim-out pool access. The "More Inclusive" package adds airport transfers, a Maroma Beach catamaran day with snorkeling, Nickelodeon Riviera Maya waterpark access, and a cenote expedition — all included.</p>
+      <p style="margin-top:8px;">Adults 18+ get full access to adjacent adults-only El Dorado Casitas Royale and El Dorado Royale (their restaurants count toward your all-inclusive). Effectively 3 resorts in one.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>Flights to Cancún (CUN)</h4>
+      <table class="flight-table">
+        <tr><th>Origin</th><th>Nonstop?</th><th>Time</th></tr>
+        <tr><td><strong>LAX</strong> / SNA</td><td class="fly-yes">✓ Nonstop (United, AA)</td><td>~4h · then 25min transfer</td></tr>
+        <tr><td><strong>ORD</strong></td><td class="fly-yes">✓ Nonstop (AA, United)</td><td>~3.5h · then 25min</td></tr>
+        <tr><td><strong>BOS</strong></td><td class="fly-yes">✓ Nonstop (JetBlue)</td><td>~4h · then 25min</td></tr>
+      </table>
+      <p style="margin-top:10px; font-size:0.8rem; color:var(--muted)">Best international flight access on this list. All 3 cities fly nonstop to CUN. Airport transfer included in More Inclusive package.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>What's Included (Gourmet Inclusive® + More Inclusive)</h4>
+      <div class="cost-row"><span class="label">All meals at 5 restaurants (Indian, Pan-Asian, Italian, Mexican, international)</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">All drinks (swim-up bar, room minibar, premium spirits)</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">Eko Kids Club (ages 4–12) + baby amenities (cribs, changing tables, bottle sterilizers)</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">Butler service (every room)</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">Airport transfers roundtrip</span><span class="amount" style="color:var(--yes)">✓ More Inclusive</span></div>
+      <div class="cost-row"><span class="label">Nickelodeon waterpark access + Maroma Beach day w/ catamaran</span><span class="amount" style="color:var(--yes)">✓ More Inclusive</span></div>
+      <div class="cost-row"><span class="label">Spa treatments</span><span class="amount" style="color:var(--partial)">Extra</span></div>
+    </div>
+
+    <div class="info-block">
+      <h4>Family Fit</h4>
+      <div class="family-fit-grid">
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+      </div>
+      <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">Night shuttle to adjacent El Dorado can be slow — noted challenge for seniors walking at night. Ground-floor swim-out suites easiest for mobility.</p>
+    </div>
+
+    <div class="info-block full">
+      <h4>✦ What Makes It Special</h4>
+      <div class="highlights-grid">
+        <span class="highlight-tag">🌊 All suites oceanfront — every room</span>
+        <span class="highlight-tag">🏊 Swim-out pool suites (ground floor)</span>
+        <span class="highlight-tag">🎢 Nickelodeon waterpark included</span>
+        <span class="highlight-tag">⛵ Maroma Beach catamaran day included</span>
+        <span class="highlight-tag">🧑‍🍳 Indian, Pan-Asian, Italian, Mexican restaurants on-site</span>
+        <span class="highlight-tag">🍼 Baby amenities: cribs, bottle sterilizers, changing tables</span>
+        <span class="highlight-tag">👶 Eko Kids Club (4–12) + Little Eko Chefs cooking program</span>
+        <span class="highlight-tag">🍹 Access to 3 resorts (El Dorado adults-only next door)</span>
+        <span class="highlight-tag">🧖 Spa + cenote expeditions included</span>
+        <span class="highlight-tag">🛎 Butler with every suite</span>
+        <span class="highlight-tag">💰 Best per-person value on this list</span>
+      </div>
+      <div class="warning-box">
+        <strong>Beach Caveat:</strong> Generations' beach has a rocky section with concrete artificial reef structures offshore. The pools and swim-out suites are the main draw — this is a pool resort with beach access, not a pristine white-sand beach resort. For deep soft-sand beach, the adjacent El Dorado has better beach access. Also be aware of sargassum seaweed (seasonal, April–August in particular).
+      </div>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; margin-top:8px;"><a href="https://www.genrivieramaya.com" target="_blank" style="color:var(--forest)">→ genrivieramaya.com</a></p>
+</section><hr class="resort-divider">
+
+<!-- ════════════════════════════════ RESORT 7 ════ -->
+<section class="resort" id="hyatt-ziva" style="padding-top:60px">
+  <div class="resort-header">
+    <div class="resort-title-group">
+      <div><span class="resort-emoji">🏖</span><span class="resort-name">Hyatt Ziva Riviera Cancún</span></div>
+      <div class="resort-location">Puerto Morelos, Riviera Maya · World of Hyatt All-Inclusive</div>
+    </div>
+    <div class="resort-badges">
+      <span class="badge badge-ai">All-Inclusive</span>
+      <span class="badge badge-points">World of Hyatt Points ✓</span>
+    </div>
+  </div>
+
+  <div class="quick-stats">
+    <div class="stat-cell"><div class="stat-label">Est. Per Person</div><div class="stat-value price">$980–$1,600</div></div>
+    <div class="stat-cell"><div class="stat-label">Total (15 ppl)</div><div class="stat-value price">$14K–$24K</div></div>
+    <div class="stat-cell"><div class="stat-label">Best Season</div><div class="stat-value small">Late Aug (good pricing,<br>warm water)</div></div>
+    <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">7 Nights</div></div>
+    <div class="stat-cell"><div class="stat-label">Nearest Airport</div><div class="stat-value small">CUN Cancún<br>(~40 min)</div></div>
+    <div class="stat-cell"><div class="stat-label">All-Inclusive?</div><div class="stat-value" style="color:var(--yes)">✓ Yes + Hyatt Points</div></div>
+  </div>
+
+  <div class="resort-grid">
+    <div class="info-block">
+      <h4>About</h4>
+      <p>The Hyatt Ziva (family-friendly) sits adjacent to the adults-only Hyatt Zilara — families stay at Ziva, the adult kids can wander next door to Zilara for the more intimate adults vibe. Part of the World of Hyatt Inclusive Collection since Hyatt acquired AMR in 2022. 9 pools, multiple restaurants, a water park (free), and one of the best beaches in the area.</p>
+      <p style="margin-top:8px;"><strong>Points play:</strong> This is the most powerful Hyatt points redemption option on this list. Category D = ~30,000 points/night. If the group has accumulated Hyatt points through lifetime Hilton/Hyatt stays, this is where they get unlocked.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>Flights to Cancún (CUN)</h4>
+      <table class="flight-table">
+        <tr><th>Origin</th><th>Nonstop?</th><th>Time</th></tr>
+        <tr><td><strong>LAX</strong> / SNA</td><td class="fly-yes">✓ Nonstop</td><td>~4h · then 40min</td></tr>
+        <tr><td><strong>ORD</strong></td><td class="fly-yes">✓ Nonstop</td><td>~3.5h · then 40min</td></tr>
+        <tr><td><strong>BOS</strong></td><td class="fly-yes">✓ Nonstop (JetBlue)</td><td>~4h · then 40min</td></tr>
+      </table>
+    </div>
+
+    <div class="info-block">
+      <h4>What's Included</h4>
+      <div class="cost-row"><span class="label">All meals, unlimited drinks</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">Free water park (on property)</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">9 pools, multiple restaurants, entertainment</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">Kids activities + programming</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">Adults: access to adjacent Hyatt Zilara</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">Cabanas (poolside)</span><span class="amount" style="color:var(--partial)">Extra (surcharge)</span></div>
+      <div class="cost-row"><span class="label">Spa</span><span class="amount" style="color:var(--partial)">Extra</span></div>
+    </div>
+
+    <div class="info-block">
+      <h4>Family Fit</h4>
+      <div class="family-fit-grid">
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+      </div>
+    </div>
+
+    <div class="info-block full">
+      <h4>✦ What Makes It Special</h4>
+      <div class="highlights-grid">
+        <span class="highlight-tag">💳 World of Hyatt points redemption (best on list)</span>
+        <span class="highlight-tag">🏊 9 pools including swim-up bar</span>
+        <span class="highlight-tag">🎢 Free on-site water park</span>
+        <span class="highlight-tag">🍽 Multiple themed restaurants (Asian, Italian, Mexican, etc.)</span>
+        <span class="highlight-tag">🍹 Adults: access to Hyatt Zilara next door</span>
+        <span class="highlight-tag">🏖 One of the best beaches in the Riviera Maya area</span>
+        <span class="highlight-tag">👶 Kids programs + dedicated play areas</span>
+        <span class="highlight-tag">💰 Lowest per-person cost on this list</span>
+        <span class="highlight-tag">✦ Best overall value + points combination</span>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; margin-top:8px;"><a href="https://www.hyatt.com/en-US/hotel/mexico/hyatt-ziva-riviera-cancun/cunhz" target="_blank" style="color:var(--forest)">→ hyatt.com — Hyatt Ziva Riviera Cancún</a></p>
+</section><hr class="resort-divider">
+
+<!-- ════════════════════════════════ RESORT 8 ════ -->
+<section class="resort" id="dreams" style="padding-top:60px">
+  <div class="resort-header">
+    <div class="resort-title-group">
+      <div><span class="resort-emoji">🌅</span><span class="resort-name">Dreams Puerto Morelos Resort &amp; Spa</span></div>
+      <div class="resort-location">Puerto Morelos, Mexico · Hyatt Inclusive Collection · All-Inclusive</div>
+    </div>
+    <div class="resort-badges">
+      <span class="badge badge-ai">Unlimited-Luxury® All-Inclusive</span>
+      <span class="badge badge-points">World of Hyatt Points ✓</span>
+    </div>
+  </div>
+
+  <div class="quick-stats">
+    <div class="stat-cell"><div class="stat-label">Est. Per Person</div><div class="stat-value price">$1,000–$1,700</div></div>
+    <div class="stat-cell"><div class="stat-label">Total (15 ppl)</div><div class="stat-value price">$15K–$25K</div></div>
+    <div class="stat-cell"><div class="stat-label">Best Season</div><div class="stat-value small">Late Aug (off-peak<br>pricing)</div></div>
+    <div class="stat-cell"><div class="stat-label">Duration</div><div class="stat-value">7 Nights</div></div>
+    <div class="stat-cell"><div class="stat-label">Nearest Airport</div><div class="stat-value small">CUN Cancún<br>(~25 min)</div></div>
+    <div class="stat-cell"><div class="stat-label">All-Inclusive?</div><div class="stat-value" style="color:var(--yes)">✓ Unlimited-Luxury®</div></div>
+  </div>
+
+  <div class="resort-grid">
+    <div class="info-block">
+      <h4>About</h4>
+      <p>Dreams Puerto Morelos is the family-friendly flagship of the Dreams brand (part of Hyatt's Inclusive Collection since 2022). The Unlimited-Luxury® concept means no wristbands, no tipping, no reservations required at any restaurant — just show up. 10 unique restaurants, 9 outdoor pools, a spa with deep-tissue massages, and a free on-site water park.</p>
+      <p style="margin-top:8px;">Dreams is typically slightly more affordable per night than Hyatt Ziva, with a similar overall quality level. Also earns and redeems World of Hyatt points.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>Flights to Cancún (CUN)</h4>
+      <table class="flight-table">
+        <tr><th>Origin</th><th>Nonstop?</th><th>Time</th></tr>
+        <tr><td><strong>LAX</strong> / SNA</td><td class="fly-yes">✓ Nonstop</td><td>~4h · then 25min</td></tr>
+        <tr><td><strong>ORD</strong></td><td class="fly-yes">✓ Nonstop</td><td>~3.5h · then 25min</td></tr>
+        <tr><td><strong>BOS</strong></td><td class="fly-yes">✓ Nonstop (JetBlue)</td><td>~4h · then 25min</td></tr>
+      </table>
+    </div>
+
+    <div class="info-block">
+      <h4>What's Included (Unlimited-Luxury®)</h4>
+      <div class="cost-row"><span class="label">All meals, 10 restaurants, no reservation needed</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">Unlimited premium drinks</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">Free water park</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">No wristbands, no tipping culture</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">Kayaking, Pilates, beach volleyball</span><span class="amount" style="color:var(--yes)">✓</span></div>
+      <div class="cost-row"><span class="label">Preferred Club upgrade (butler, lounge, better rooms)</span><span class="amount" style="color:var(--partial)">Upgrade</span></div>
+    </div>
+
+    <div class="info-block">
+      <h4>Family Fit</h4>
+      <div class="family-fit-grid">
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+      </div>
+      <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">Strong family programming. "Preferred Club" adds Secrets Aura access for adults next door — good option for the Ho adult children wanting a quieter evening option.</p>
+    </div>
+
+    <div class="info-block full">
+      <h4>✦ What Makes It Special</h4>
+      <div class="highlights-grid">
+        <span class="highlight-tag">🍽 10 restaurants, no reservations ever required</span>
+        <span class="highlight-tag">🎢 Free on-site water park</span>
+        <span class="highlight-tag">🏊 9 pools including poolside bars</span>
+        <span class="highlight-tag">💳 World of Hyatt points (earn + redeem)</span>
+        <span class="highlight-tag">🚫 No wristbands — feels more resort, less all-inclusive</span>
+        <span class="highlight-tag">🛎 Preferred Club: butler + lounge + concierge</span>
+        <span class="highlight-tag">👶 Explorer's Club (kids program 3–12)</span>
+        <span class="highlight-tag">🧘 Pilates, kayaking, beach volleyball included</span>
+        <span class="highlight-tag">💰 Most affordable quality all-inclusive on this list</span>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; margin-top:8px;"><a href="https://www.hyatt.com/en-US/hotel/mexico/dreams-puerto-morelos-resort-and-spa/cunif" target="_blank" style="color:var(--forest)">→ hyatt.com — Dreams Puerto Morelos</a></p>
+</section>
+
+<!-- ════════════════════════════════ COMPARISON ════ -->
+<section style="scroll-margin-top:60px" id="compare">
+  <div class="section-header" style="margin-top:60px">
+    <span class="section-title">Full Comparison</span>
+    <span class="section-note">All options · Late August 2027</span>
+  </div>
+
+  <div class="comparison-wrapper">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Resort</th>
+          <th>Per Person (7 nts)</th>
+          <th>All-Inclusive?</th>
+          <th>Best Season</th>
+          <th>Airport</th>
+          <th>LAX / SNA</th>
+          <th>ORD</th>
+          <th>BOS</th>
+          <th>Points</th>
+          <th>Mobility</th>
+          <th>Infant OK?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a class="ct-link" href="#disney-cruise"><span class="ct-name">🚢 Disney Cruise</span><br><small>Fantasy / Treasure</small></a></td>
+          <td data-label="Per Person"><strong>$1,600–$3,000</strong></td>
+          <td data-label="All-Inclusive?"><span class="dot-part"></span>Mostly</td>
+          <td data-label="Best Season">Late Aug ✓</td>
+          <td data-label="Airport">MCO / FLL</td>
+          <td data-label="LAX / SNA" class="fly-yes">✓ Nonstop ~5h</td>
+          <td data-label="ORD" class="fly-yes">✓ Nonstop ~3h</td>
+          <td data-label="BOS" class="fly-yes">✓ Nonstop ~3h</td>
+          <td data-label="Points">Chase/Amex</td>
+          <td data-label="Mobility">⭐⭐⭐⭐⭐</td>
+          <td data-label="Infant OK?">⭐⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td><a class="ct-link" href="#disney-world"><span class="ct-name">🏰 Disney World</span><br><small>Grand Floridian / Polynesian</small></a></td>
+          <td data-label="Per Person"><strong>$2,500–$5,000+</strong></td>
+          <td data-label="All-Inclusive?"><span class="dot-no"></span>No (add parks + dining)</td>
+          <td data-label="Best Season">Late Aug ✓ (hot)</td>
+          <td data-label="Airport">MCO</td>
+          <td data-label="LAX / SNA" class="fly-yes">✓ Nonstop ~5h</td>
+          <td data-label="ORD" class="fly-yes">✓ Nonstop ~3h</td>
+          <td data-label="BOS" class="fly-yes">✓ Nonstop ~3h</td>
+          <td data-label="Points">DVC / Disney</td>
+          <td data-label="Mobility">⭐⭐⭐⭐⭐</td>
+          <td data-label="Infant OK?">⭐⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td><a class="ct-link" href="#brush-creek"><span class="ct-name">🤠 Brush Creek Ranch</span><br><small>Saratoga, Wyoming</small></a></td>
+          <td data-label="Per Person"><strong>$2,900–$4,200</strong></td>
+          <td data-label="All-Inclusive?"><span class="dot-yes"></span>Yes — meals + booze + activities</td>
+          <td data-label="Best Season">Late Aug ✓✓ Peak</td>
+          <td data-label="Airport">DEN (199mi) then drive/charter</td>
+          <td data-label="LAX / SNA" class="fly-yes">✓ Nonstop to DEN ~2.5h</td>
+          <td data-label="ORD" class="fly-yes">✓ Nonstop to DEN ~2.5h</td>
+          <td data-label="BOS" class="fly-yes">✓ Nonstop to DEN ~4.5h</td>
+          <td data-label="Points">Amex FHR</td>
+          <td data-label="Mobility">⭐⭐⭐⭐</td>
+          <td data-label="Infant OK?">⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td><a class="ct-link" href="#coeur-dalene"><span class="ct-name">🏔️ Coeur d'Alene Resort</span><br><small>Idaho · IHG Property</small></a></td>
+          <td data-label="Per Person"><strong>$1,800–$3,000</strong></td>
+          <td data-label="All-Inclusive?"><span class="dot-no"></span>No (add dining ~$100–$150/day)</td>
+          <td data-label="Best Season">Late Aug ✓✓ Peak</td>
+          <td data-label="Airport">GEG Spokane (40min)</td>
+          <td data-label="LAX / SNA" class="fly-yes">✓ Nonstop ~2.5h</td>
+          <td data-label="ORD" class="fly-yes">✓ Nonstop ~3.5h</td>
+          <td data-label="BOS" class="fly-conn">1 stop ~7–8h</td>
+          <td data-label="Points">IHG Points</td>
+          <td data-label="Mobility">⭐⭐⭐⭐⭐</td>
+          <td data-label="Infant OK?">⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td><a class="ct-link" href="#half-moon"><span class="ct-name">🇯🇲 Half Moon Jamaica</span><br><small>Rose Hall Villas · Salamander</small></a></td>
+          <td data-label="Per Person"><strong>$2,200–$3,700</strong></td>
+          <td data-label="All-Inclusive?"><span class="dot-part"></span>Partial (villa staff incl.; food costs extra)</td>
+          <td data-label="Best Season">⚠ Hurricane risk Aug — Best: Dec–Apr</td>
+          <td data-label="Airport">MBJ (12min)</td>
+          <td data-label="LAX / SNA" class="fly-conn">1 stop ~7–8h</td>
+          <td data-label="ORD" class="fly-yes">✓ Nonstop ~4h</td>
+          <td data-label="BOS" class="fly-yes">✓ Nonstop ~3.5h</td>
+          <td data-label="Points">Amex FHR</td>
+          <td data-label="Mobility">⭐⭐⭐⭐</td>
+          <td data-label="Infant OK?">⭐⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td><a class="ct-link" href="#generations"><span class="ct-name">🌴 Generations Riviera Maya</span><br><small>Karisma Hotels</small></a></td>
+          <td data-label="Per Person"><strong>$1,100–$1,800</strong></td>
+          <td data-label="All-Inclusive?"><span class="dot-yes"></span>Yes — Gourmet Inclusive® + butler + catamaran day</td>
+          <td data-label="Best Season">Late Aug ✓ (sargassum risk)</td>
+          <td data-label="Airport">CUN (25min)</td>
+          <td data-label="LAX / SNA" class="fly-yes">✓ Nonstop ~4h</td>
+          <td data-label="ORD" class="fly-yes">✓ Nonstop ~3.5h</td>
+          <td data-label="BOS" class="fly-yes">✓ Nonstop ~4h</td>
+          <td data-label="Points">None major</td>
+          <td data-label="Mobility">⭐⭐⭐⭐</td>
+          <td data-label="Infant OK?">⭐⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td><a class="ct-link" href="#hyatt-ziva"><span class="ct-name">🏖 Hyatt Ziva Riviera Cancún</span><br><small>World of Hyatt</small></a></td>
+          <td data-label="Per Person"><strong>$980–$1,600</strong></td>
+          <td data-label="All-Inclusive?"><span class="dot-yes"></span>Yes — full all-inclusive</td>
+          <td data-label="Best Season">Late Aug ✓ off-peak pricing</td>
+          <td data-label="Airport">CUN (40min)</td>
+          <td data-label="LAX / SNA" class="fly-yes">✓ Nonstop ~4h</td>
+          <td data-label="ORD" class="fly-yes">✓ Nonstop ~3.5h</td>
+          <td data-label="BOS" class="fly-yes">✓ Nonstop ~4h</td>
+          <td data-label="Points">World of Hyatt ✓✓</td>
+          <td data-label="Mobility">⭐⭐⭐⭐</td>
+          <td data-label="Infant OK?">⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td><a class="ct-link" href="#dreams"><span class="ct-name">🌅 Dreams Puerto Morelos</span><br><small>Hyatt Inclusive Collection</small></a></td>
+          <td data-label="Per Person"><strong>$1,000–$1,700</strong></td>
+          <td data-label="All-Inclusive?"><span class="dot-yes"></span>Yes — Unlimited-Luxury® no reservations, no wristbands</td>
+          <td data-label="Best Season">Late Aug ✓ off-peak pricing</td>
+          <td data-label="Airport">CUN (25min)</td>
+          <td data-label="LAX / SNA" class="fly-yes">✓ Nonstop ~4h</td>
+          <td data-label="ORD" class="fly-yes">✓ Nonstop ~3.5h</td>
+          <td data-label="BOS" class="fly-yes">✓ Nonstop ~4h</td>
+          <td data-label="Points">World of Hyatt ✓✓</td>
+          <td data-label="Mobility">⭐⭐⭐⭐</td>
+          <td data-label="Infant OK?">⭐⭐⭐⭐⭐</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Legend -->
+  <div style="margin-top:20px; display:flex; gap:24px; flex-wrap:wrap; font-size:0.78rem; color:var(--muted);">
+    <span><span class="dot-yes"></span> All-Inclusive</span>
+    <span><span class="dot-part"></span> Partial</span>
+    <span><span class="dot-no"></span> Not Included</span>
+    <span style="color:var(--yes)">✓</span> Nonstop flight available &nbsp;
+    <span style="color:var(--partial)">~</span> Connection required
+  </div>
+</section>
+
+<!-- CLOSING NOTE -->
+<section class="closing-note" style="margin-top:72px; padding:40px; background:var(--deep-green); border-radius:16px; color:var(--sand);">
+  <p style="font-family:'Cormorant Garamond', serif; font-size:1.6rem; font-weight:300; margin-bottom:16px; color:var(--warm-white);">A note from your planner 🌿</p>
+  <p style="font-size:0.9rem; line-height:1.8; color:rgba(247,243,236,0.8);">
+    For late August with this specific cast, the <strong style="color:var(--sand)">Hyatt Ziva / Dreams Puerto Morelos</strong> deliver the best value-to-experience ratio — fully all-inclusive, Hyatt points eligible, nonstop flights from all 3 cities, and purpose-built for your exact age range mix. If budget is secondary to wow factor, <strong style="color:var(--sand)">Brush Creek Ranch</strong> in late August (peak Wyoming season) is the trip people talk about for 20 years. And if the group wants the zero-logistics, guaranteed-magic experience, <strong style="color:var(--sand)">Disney Cruise</strong> handles every constraint simultaneously. 
+  </p>
+  <p style="margin-top:12px; font-family:'DM Mono', monospace; font-size:0.65rem; letter-spacing:0.2em; color:rgba(247,243,236,0.45);">HARD NOs: JANUARY · EASTER &nbsp;|&nbsp; TRAVEL WINDOW: LATE AUGUST 2027 ~7 NIGHTS</p>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>Lau Family Reunion Trip Planner · Built for internal use</p>
+  <p>Pricing estimates as of 2026 · Verify all rates directly with properties before booking</p>
+  <p style="margin-top:12px;">
+    <a href="https://www.brushcreekranch.com" target="_blank">Brush Creek</a> &nbsp;·&nbsp;
+    <a href="https://www.halfmoon.com" target="_blank">Half Moon</a> &nbsp;·&nbsp;
+    <a href="https://disneycruise.disney.go.com" target="_blank">Disney Cruise</a> &nbsp;·&nbsp;
+    <a href="https://www.cdaresort.com" target="_blank">Coeur d'Alene</a> &nbsp;·&nbsp;
+    <a href="https://www.genrivieramaya.com" target="_blank">Generations</a> &nbsp;·&nbsp;
+    <a href="https://www.hyatt.com" target="_blank">Hyatt Inclusive</a>
+  </p>
+</footer>
+
+</body>
