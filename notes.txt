@@ -1,0 +1,14 @@
+LAU FAMILY TRIP NOTES
+========================================
+
+This file is a placeholder.
+
+Notes added in the trip planner are saved to your browser's
+local storage and can be downloaded as a .txt file using the
+"⬇ Download .txt" button in the floating Family Notes panel.
+
+To share notes with the group, download the .txt file and
+share it via email, iMessage, or Google Drive.
+
+========================================
+Lau Family Reunion Trip Planner · 2027

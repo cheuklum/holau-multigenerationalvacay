@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ho-Lau Family Family Trip Planner · 2027</title>
+<title>Lau Family Reunion Trip Planner · 2027</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -565,7 +565,7 @@
     .comparison-table tr,
     .comparison-table td {
       display: block;
-      width: 100%;
+      width: 100%;  min-width: 0;
     }
 
     .comparison-table tr {
@@ -617,6 +617,162 @@
     .comparison-table td:first-child small { color: rgba(232,223,201,0.65); font-size: 0.72rem; }
     .comparison-table td:first-child a { color: inherit; text-decoration: none; }
   }
+
+  /* ══════════════════════════════════════════
+     TABS
+  ══════════════════════════════════════════ */
+  :root { --tabs-h: 52px; }
+
+  .tabs-bar {
+    position: sticky; top: 0; z-index: 120;
+    background: var(--charcoal);
+    border-bottom: 2px solid var(--gold);
+  }
+  .tabs-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; gap: 4px; padding: 0 24px;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .tabs-inner::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.84rem; font-weight: 500; letter-spacing: 0.03em;
+    color: rgba(247,243,236,0.6);
+    background: none; border: none; cursor: pointer;
+    padding: 15px 18px 12px;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .tab-btn:hover { color: var(--sand); }
+  .tab-btn[aria-selected="true"] { color: var(--warm-white); border-bottom-color: var(--terracotta); }
+  .tab-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* section navs stack under the tab bar */
+  .tab-panel .sticky-nav { top: var(--tabs-h); }
+  .tab-panel .resort, #compare, .d27-section { scroll-margin-top: 112px !important; }
+
+  .decision-callout {
+    background: #eef4f0; border-bottom: 1px solid var(--light-border);
+    padding: 14px 40px; text-align: center;
+    font-size: 0.86rem; color: var(--deep-green);
+  }
+  .decision-callout a { color: var(--terracotta); font-weight: 500; text-decoration: none; cursor: pointer; }
+  .decision-callout a:hover { text-decoration: underline; }
+
+  /* ══════════════════════════════════════════
+     DISNEY WORLD 2027 TAB
+  ══════════════════════════════════════════ */
+  .d27-section { margin-bottom: 64px; }
+  .d27-lede { font-size: 0.95rem; color: var(--muted); max-width: 760px; margin: -16px 0 28px; line-height: 1.7; }
+
+  /* timeline */
+  .timeline { position: relative; padding-left: 30px; margin-top: 8px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px;
+    width: 2px; background: var(--light-border);
+  }
+  .tl-item { position: relative; padding-bottom: 22px; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -29px; top: 5px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--warm-white); border: 3px solid var(--forest);
+  }
+  .tl-item.key::before { background: var(--terracotta); border-color: var(--terracotta); box-shadow: 0 0 0 4px rgba(196,113,74,0.18); }
+  .tl-date {
+    font-family: 'DM Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .tl-item.key .tl-date { color: var(--terracotta); }
+  .tl-title { font-size: 1rem; font-weight: 500; color: var(--charcoal); margin-bottom: 4px; }
+  .tl-body { font-size: 0.88rem; color: var(--charcoal); line-height: 1.65; max-width: 780px; }
+  .tl-body ul { margin: 6px 0 0 18px; }
+  .tl-body li { margin-bottom: 3px; }
+  .tl-tz { display: inline-block; margin-top: 6px; font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; padding: 2px 9px; border-radius: 20px; background: var(--sand); color: var(--charcoal); }
+
+  /* room table */
+  .d27-table-wrap { overflow-x: auto; }
+  .d27-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; min-width: 640px; }
+  .d27-table th {
+    background: var(--deep-green); color: var(--sand);
+    font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em;
+    text-transform: uppercase; padding: 10px 14px; text-align: left; font-weight: 400;
+  }
+  .d27-table td { padding: 11px 14px; border-bottom: 1px solid var(--light-border); vertical-align: top; }
+  .d27-table tr:nth-child(even) td { background: var(--warm-white); }
+  .d27-table td:first-child { font-weight: 500; white-space: nowrap; }
+
+  /* day cards */
+  .day-card {
+    background: var(--warm-white); border: 1px solid var(--light-border);
+    border-radius: 12px; overflow: hidden; margin-bottom: 18px;
+  }
+  .day-head {
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    background: var(--deep-green); padding: 14px 20px;
+  }
+  .day-date {
+    font-family: 'DM Mono', monospace; font-size: 0.66rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold); min-width: 74px;
+  }
+  .day-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--warm-white); line-height: 1.15; }
+  .day-badge {
+    margin-left: auto; font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 3px 11px; border-radius: 20px;
+    background: rgba(184,146,74,0.22); color: var(--sand); white-space: nowrap;
+  }
+  .day-badge.rest { background: rgba(255,255,255,0.12); }
+  .day-body { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--light-border); }
+  .day-col { background: var(--warm-white); padding: 14px 18px 12px; font-size: 0.84rem; line-height: 1.6; }
+  .day-col h5 {
+    font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px; font-weight: 400;
+  }
+  .day-col ul { margin-left: 16px; }
+  .day-col li { margin-bottom: 4px; }
+  .day-foot { padding: 11px 20px; background: var(--cream); border-top: 1px solid var(--light-border); font-size: 0.82rem; color: var(--charcoal); line-height: 1.6; }
+  .day-foot strong { color: var(--deep-green); }
+
+  .d27-list { margin: 8px 0 0 18px; font-size: 0.88rem; line-height: 1.65; }
+  .d27-list li { margin-bottom: 5px; }
+  .d27-sources { font-size: 0.8rem; line-height: 1.9; columns: 2; column-gap: 40px; }
+  .d27-sources a { color: var(--forest); word-break: break-word; }
+  .d27-sources p { break-inside: avoid; }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .btn-link {
+    display: inline-block; font-size: 0.76rem; font-weight: 500; text-decoration: none;
+    padding: 6px 14px; border-radius: 6px; background: var(--deep-green); color: var(--sand);
+  }
+  .btn-link:hover { background: #1e3630; }
+
+  @media (max-width: 900px) {
+    .day-body { grid-template-columns: 1fr; }
+    .d27-sources { columns: 1; }
+  }
+  @media (max-width: 600px) {
+    :root { --tabs-h: 48px; }
+    .tabs-inner { padding: 0 8px; }
+    .tab-btn { font-size: 0.78rem; padding: 14px 13px 11px; }
+    .decision-callout { padding: 12px 16px; font-size: 0.8rem; }
+    .day-head { padding: 12px 16px; gap: 8px; }
+    .day-title { font-size: 1.2rem; }
+    .day-badge { margin-left: 0; }
+    .day-col { padding: 12px 16px 10px; }
+    .tl-body { font-size: 0.84rem; }
+  }
+
+  /* keep the sticky bars aligned while edit mode's toolbar is showing */
+  body.edit-mode-on .tabs-bar { top: 48px; }
+  body.edit-mode-on .tab-panel .sticky-nav { top: calc(48px + var(--tabs-h)); }
+  @media (max-width: 600px) {
+    body.edit-mode-on .tabs-bar { top: 44px; }
+    body.edit-mode-on .tab-panel .sticky-nav { top: calc(44px + var(--tabs-h)); }
+  }
 </style>
 </head>
 <body>
@@ -625,7 +781,7 @@
 <header class="hero">
   <div class="hero-inner">
     <p class="hero-eyebrow">Family Reunion Trip Planner · Late August 2027</p>
-    <h1>The <em>Ho-Lau</em> Family<br>Vacation Shortlist</h1>
+    <h1>The <em>Lau</em> Family<br>Vacation Shortlist</h1>
     <p class="hero-sub">5 families · 15 people · Multi-generational · Mobility-aware · Bougie but not baller</p>
   </div>
 </header>
@@ -637,8 +793,8 @@
     <div class="cast-grid">
       <div class="cast-card">
         <div class="family-name">The Laus</div>
-        <div class="members">first_gen couple<br>Retirement age</div>
-        <span class="tag">first_gens · Mobility</span>
+        <div class="members">Senior couple<br>Retirement age</div>
+        <span class="tag">Seniors · Mobility</span>
       </div>
       <div class="cast-card">
         <div class="family-name">The KimLaus</div>
@@ -652,12 +808,12 @@
       </div>
       <div class="cast-card">
         <div class="family-name">The HoFrancis</div>
-        <div class="members">first_gen couple<br>Retirement age</div>
-        <span class="tag">first_gens · Mobility</span>
+        <div class="members">Senior couple<br>Retirement age</div>
+        <span class="tag">Seniors · Mobility</span>
       </div>
       <div class="cast-card">
         <div class="family-name">The Ho's</div>
-        <div class="members">first_gen couple<br>+ 2 adult children (late 20s–30s)</div>
+        <div class="members">Senior couple<br>+ 2 adult children (late 20s–30s)</div>
         <span class="tag">Mixed · Bar Access ✦</span>
       </div>
     </div>
@@ -666,7 +822,22 @@
 
 <!-- WINDOW BANNER -->
 <div class="window-banner">
-  <p>🗓 Travel Window: <strong>Late August 2027 · ~7 Nights</strong> &nbsp;|&nbsp; ✗ No January &nbsp;|&nbsp; ✗ No Easter</p>
+  <p>🏰 Decision: <strong>Disney World · Sun Aug 22 – Sat Aug 28, 2027</strong> &nbsp;|&nbsp; Home base: Animal Kingdom Lodge &nbsp;|&nbsp; ✗ No January &nbsp;|&nbsp; ✗ No Easter</p>
+</div>
+
+<!-- TABS -->
+<div class="tabs-bar" id="tabs-bar">
+  <div class="tabs-inner" role="tablist" aria-label="Trip planner sections">
+    <button class="tab-btn" role="tab" id="tabbtn-disney2027" data-tab="disney2027" aria-controls="tab-disney2027" aria-selected="true">🏰 Disney World · Aug 22–28, 2027</button>
+    <button class="tab-btn" role="tab" id="tabbtn-compare" data-tab="compare" aria-controls="tab-compare" aria-selected="false">⚖️ Compare All 8 Options</button>
+  </div>
+</div>
+
+<!-- ═══════════ TAB: COMPARE ALL OPTIONS ═══════════ -->
+<div class="tab-panel" id="tab-compare" role="tabpanel" aria-labelledby="tabbtn-compare">
+
+<div class="decision-callout">
+  ✅ The family picked <strong>Disney World</strong>. This tab is the original 8-option comparison, kept for reference. &nbsp;<a href="#d27-overview" data-switch-tab="disney2027">→ Open the Aug 22–28, 2027 plan</a>
 </div>
 
 <!-- NAV -->
@@ -713,7 +884,7 @@
     <div class="info-block">
       <h4>About</h4>
       <p>For summer 2027, the <strong>Disney Fantasy</strong> sails 4–5 night Caribbean routes from Port Canaveral, and the <strong>Disney Treasure</strong> runs 7-night Eastern/Western Caribbean. The brand-new <strong>Disney Believe</strong> (Wish-class) joins the fleet in 2027. Disney Wish is repositioning to Europe in summer 2027, so the Florida fleet for late August will be Fantasy, Treasure, Dream, and Destiny.</p>
-      <p>Book <strong>Concierge Level</strong> for the first_gen couples — dedicated lounge, butler service, private sun deck, and priority embarkation/disembarkation.</p>
+      <p>Book <strong>Concierge Level</strong> for the senior couples — dedicated lounge, butler service, private sun deck, and priority embarkation/disembarkation.</p>
     </div>
 
     <div class="info-block">
@@ -741,10 +912,10 @@
     <div class="info-block">
       <h4>Family Fit</h4>
       <div class="family-fit-grid">
-        <div class="fit-card"><div class="fit-name">Laus (first_gens)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
-        <div class="fit-card"><div class="fit-name">HoFrancis (first_gens)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐</div></div>
       </div>
       <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">✦ Adult kids: The District nightclub district runs late. Adults-only pool + bar. Solid but not a nightlife destination.</p>
@@ -797,7 +968,7 @@
   <div class="resort-grid">
     <div class="info-block">
       <h4>Grand Floridian</h4>
-      <p>Disney's flagship Victorian resort on the Magic Kingdom monorail loop. White-and-gold architecture, a 5-story Grand Lobby with a live orchestra, Cinderella's Castle visible from the shore. Club Level concierge offers dedicated lounge with food &amp; drinks around the clock. Best for the first_gen couples who want pure elegance.</p>
+      <p>Disney's flagship Victorian resort on the Magic Kingdom monorail loop. White-and-gold architecture, a 5-story Grand Lobby with a live orchestra, Cinderella's Castle visible from the shore. Club Level concierge offers dedicated lounge with food &amp; drinks around the clock. Best for the senior couples who want pure elegance.</p>
       <p style="margin-top:8px;"><a href="https://disneyworld.disney.go.com/resorts/grand-floridian-resort-and-spa/" target="_blank" style="color:var(--forest); font-size:0.82rem">→ Official page</a></p>
     </div>
     <div class="info-block">
@@ -814,14 +985,14 @@
         <tr><td><strong>ORD</strong></td><td class="fly-yes">✓ Nonstop</td><td>~3h</td></tr>
         <tr><td><strong>BOS</strong></td><td class="fly-yes">✓ Nonstop</td><td>~3h</td></tr>
       </table>
-      <p style="margin-top:10px; font-size:0.8rem; color:var(--muted)">Complimentary Disney Magical Express (or similar) connects MCO to resort. No car needed — monorail + resort buses cover everything.</p>
+      <p style="margin-top:10px; font-size:0.8rem; color:var(--muted)">Disney's free airport shuttle (Magical Express) ended in 2022 — MCO to resort is now a paid shuttle (e.g., Mears Connect), private car/van, or rideshare. Once on property, Disney buses/monorail/boats cover the parks, so no rental car is needed.</p>
     </div>
 
     <div class="info-block">
       <h4>Add-On Cost Estimates</h4>
       <div class="cost-row"><span class="label">Park tickets (7-day, per adult)</span><span class="amount">~$700–$900</span></div>
       <div class="cost-row"><span class="label">Dining plan (optional, per adult/day)</span><span class="amount">~$80–$120</span></div>
-      <div class="cost-row"><span class="label">Genie+ / Lightning Lane (per day)</span><span class="amount">~$30–$50/pp</span></div>
+      <div class="cost-row"><span class="label">Lightning Lane Multi Pass (formerly Genie+, per day)</span><span class="amount">~$30–$50/pp</span></div>
       <div class="cost-row"><span class="label">Signature dining (ex. Narcoossee's, Citricos)</span><span class="amount">~$80–$150/pp</span></div>
       <div class="cost-row total"><span class="label">Extras per adult, 7 nights</span><span class="amount">+$900–$1,500</span></div>
     </div>
@@ -836,7 +1007,6 @@
         <span class="highlight-tag">♿ Extremely accessible — Disney is best-in-class</span>
         <span class="highlight-tag">👶 Babies welcome everywhere, stroller rentals in parks</span>
         <span class="highlight-tag">🎠 Magic Kingdom fireworks from resort beach</span>
-        <span class="highlight-tag">🚝 Monorail bar car (adults only, seasonal)</span>
         <span class="highlight-tag">🧜 Character dining (breakfast with princesses, etc.)</span>
       </div>
       <div class="warning-box">
@@ -898,13 +1068,13 @@
     <div class="info-block">
       <h4>Family Fit</h4>
       <div class="family-fit-grid">
-        <div class="fit-card"><div class="fit-name">Laus (first_gens)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐</div></div>
-        <div class="fit-card"><div class="fit-name">HoFrancis (first_gens)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
       </div>
-      <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">✦ Mobility note: Lodge rooms recommended for first_gens over outlying cabins. Cabin guests need transport at night. ADA-accessible cabins available.</p>
+      <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">✦ Mobility note: Lodge rooms recommended for seniors over outlying cabins. Cabin guests need transport at night. ADA-accessible cabins available.</p>
     </div>
 
     <div class="info-block full">
@@ -981,10 +1151,10 @@
     <div class="info-block">
       <h4>Accessibility &amp; Family Fit</h4>
       <div class="family-fit-grid">
-        <div class="fit-card"><div class="fit-name">Laus (first_gens)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
-        <div class="fit-card"><div class="fit-name">HoFrancis (first_gens)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐</div></div>
       </div>
       <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">ADA accessible rooms available. High-rise hotel = elevators everywhere. Childcare with 24hr notice. Private in-room babysitting.</p>
@@ -1066,13 +1236,13 @@
     <div class="info-block">
       <h4>Family Fit</h4>
       <div class="family-fit-grid">
-        <div class="fit-card"><div class="fit-name">Laus (first_gens)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
-        <div class="fit-card"><div class="fit-name">HoFrancis (first_gens)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
       </div>
-      <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">Private villa cook handles baby food, dietary needs. Flat resort grounds. Golf carts for mobility. Rum bar for adults. Nurse's station on property — great for first_gens.</p>
+      <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">Private villa cook handles baby food, dietary needs. Flat resort grounds. Golf carts for mobility. Rum bar for adults. Nurse's station on property — great for seniors.</p>
     </div>
 
     <div class="info-block full">
@@ -1153,13 +1323,13 @@
     <div class="info-block">
       <h4>Family Fit</h4>
       <div class="family-fit-grid">
-        <div class="fit-card"><div class="fit-name">Laus (first_gens)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
-        <div class="fit-card"><div class="fit-name">HoFrancis (first_gens)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐</div></div>
       </div>
-      <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">Night shuttle to adjacent El Dorado can be slow — noted challenge for first_gens walking at night. Ground-floor swim-out suites easiest for mobility.</p>
+      <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">Night shuttle to adjacent El Dorado can be slow — noted challenge for seniors walking at night. Ground-floor swim-out suites easiest for mobility.</p>
     </div>
 
     <div class="info-block full">
@@ -1238,10 +1408,10 @@
     <div class="info-block">
       <h4>Family Fit</h4>
       <div class="family-fit-grid">
-        <div class="fit-card"><div class="fit-name">Laus (first_gens)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
-        <div class="fit-card"><div class="fit-name">HoFrancis (first_gens)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
       </div>
     </div>
@@ -1316,10 +1486,10 @@
     <div class="info-block">
       <h4>Family Fit</h4>
       <div class="family-fit-grid">
-        <div class="fit-card"><div class="fit-name">Laus (first_gens)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">Laus (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">KimLaus (4yr)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">HanaokaLaus (Infant)</div><div class="fit-score">⭐⭐⭐⭐⭐</div></div>
-        <div class="fit-card"><div class="fit-name">HoFrancis (first_gens)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
+        <div class="fit-card"><div class="fit-name">HoFrancis (Seniors)</div><div class="fit-score">⭐⭐⭐⭐</div></div>
         <div class="fit-card"><div class="fit-name">Ho Adults</div><div class="fit-score">⭐⭐⭐⭐</div></div>
       </div>
       <p style="margin-top:12px; font-size:0.8rem; color:var(--muted)">Strong family programming. "Preferred Club" adds Secrets Aura access for adults next door — good option for the Ho adult children wanting a quieter evening option.</p>
@@ -1497,6 +1667,541 @@
 
 </main>
 
+</div><!-- /tab-compare -->
+
+<!-- ═══════════════════════════════════════════════════════
+     TAB: DISNEY WORLD · AUG 22–28, 2027
+═══════════════════════════════════════════════════════ -->
+<div class="tab-panel active" id="tab-disney2027" role="tabpanel" aria-labelledby="tabbtn-disney2027">
+
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a class="nav-link" href="#d27-overview">Overview</a>
+    <a class="nav-link" href="#d27-timeline">Book-By Timeline</a>
+    <a class="nav-link" href="#d27-stay">Where to Stay</a>
+    <a class="nav-link" href="#d27-days">Day-by-Day</a>
+    <a class="nav-link" href="#d27-flights">Flights</a>
+    <a class="nav-link" href="#d27-tickets">Tickets</a>
+    <a class="nav-link" href="#d27-budget">Budget</a>
+    <a class="nav-link" href="#d27-notes">Heads-Up</a>
+    <a class="nav-link" href="#d27-sources">Sources</a>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ───────── OVERVIEW ───────── -->
+<section class="d27-section" id="d27-overview">
+  <div class="section-header">
+    <span class="section-title">Trip at a Glance</span>
+    <span class="section-note">Draft · built Nov 26, 2026</span>
+  </div>
+
+  <div class="quick-stats">
+    <div class="stat-cell"><div class="stat-label">Dates</div><div class="stat-value small">Sun Aug 22 →<br>Sat Aug 28, 2027</div></div>
+    <div class="stat-cell"><div class="stat-label">Nights</div><div class="stat-value">6 <span style="font-weight:300;font-size:0.75rem">(7 days)</span></div></div>
+    <div class="stat-cell"><div class="stat-label">Park Days</div><div class="stat-value small">5 · Mon–Fri</div></div>
+    <div class="stat-cell"><div class="stat-label">Home Base</div><div class="stat-value small">Animal Kingdom Lodge<br>Jambo + Kidani</div></div>
+    <div class="stat-cell"><div class="stat-label">Airport</div><div class="stat-value small">MCO Orlando</div></div>
+    <div class="stat-cell"><div class="stat-label">Group</div><div class="stat-value small">15 people<br>13–14 need tickets</div></div>
+  </div>
+
+  <div class="resort-grid">
+    <div class="info-block">
+      <h4>Why Animal Kingdom Lodge fits this group</h4>
+      <p>Rooms and villas look out over working savannas, so the 4-year-old, the 2-year-old and the grandparents can watch giraffes and zebras from a balcony without going anywhere. Disney lists 30+ species on the grounds. Both buildings have villas with full kitchens and washer/dryers, which matters with an infant and a toddler on different nap schedules.</p>
+      <p>Both Jambo House and Kidani Village have scheduled guest-room refurbishments that wrap up before your dates (Kidani by May 2026, Jambo by January 2027), so you should land in refreshed rooms.</p>
+    </div>
+    <div class="info-block">
+      <h4>The trade-offs to know about</h4>
+      <p><strong>Bus-only transportation.</strong> There's no monorail, Skyliner or boat to the parks from here, so every park trip is a bus. With seniors who move slowly and a stroller brigade, build in extra time and plan midday returns.</p>
+      <p><strong>Animal Kingdom is mid-transformation.</strong> DinoLand U.S.A. closed in early 2026 for the new Tropical Americas land (Encanto + Indiana Jones). Disney says it opens in 2027 but hasn't given a date, so plan the trip as if it may not be open.</p>
+    </div>
+    <div class="info-block full">
+      <h4>Three assumptions I made. Please check these</h4>
+      <ul class="d27-list">
+        <li><strong>Aug 22–28 is 6 nights, not 7.</strong> Sunday check-in, Saturday check-out. If you want 7 nights, add Aug 21 or Aug 29 and tell me.</li>
+        <li><strong>The three kids are:</strong> the KimLaus' 4-year-old, plus the HanaokaLaus' infant and 2-year-old. Disney tickets start at age 3, so if that 2-year-old turns 3 before Aug 22, add a ticket.</li>
+        <li><strong>Hopper tickets only for the people who will use them</strong> (likely the Ho adult children and maybe a few parents). Park Hopper is bought per ticket, so the seniors and young families don't need it.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── TIMELINE ───────── -->
+<section class="d27-section" id="d27-timeline">
+  <div class="section-header">
+    <span class="section-title">Book-By Timeline</span>
+    <span class="section-note">Every date counted back from Sun Aug 22, 2027</span>
+  </div>
+  <p class="d27-lede">Short version: lock rooms now, buy flights in spring, buy tickets by early June, then set alarms for the two Disney booking windows (dining on June 23, Lightning Lane on Aug 15). The filled orange dots are the ones that really matter.</p>
+
+  <div class="timeline">
+
+    <div class="tl-item key">
+      <div class="tl-date">Now · Nov 26 – Dec 2026</div>
+      <div class="tl-title">Hold the rooms</div>
+      <div class="tl-body">
+        <p>Disney opened 2027 resort reservations and ticket sales back in April 2026, so your dates are bookable today. The listings I saw offered a refundable deposit with pay-later, so there's little downside to holding rooms early. Confirm the exact cancellation deadline when you book.</p>
+        <ul>
+          <li>Price Jambo House Club Level (Kilimanjaro Club) for the senior couples and 1-bedroom villas for the two young families (see Where to Stay).</li>
+          <li>Compare cash rates against renting Disney Vacation Club points. Both AKL buildings are DVC resorts, and rentals can undercut cash rates, but the cancellation terms are stricter.</li>
+          <li>A free Disney-authorized travel planner can juggle 6–7 rooms and watch for room offers. Disney's Chase Visa cardholders also have access to extra offers.</li>
+          <li>Everyone makes a My Disney Experience account now and links up as one party.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Now · Dec 2026</div>
+      <div class="tl-title">Check award space and set fare alerts</div>
+      <div class="tl-body">
+        <p>Most major U.S. airlines sell flights about 11 months out, which means Aug 2027 opened sometime between late August and late September 2026. Award seats tend to be best right when a schedule opens and again in the last few weeks, so if you want to use Chase or Amex points, search now. For cash fares, set Google Flights alerts for BOS, ORD, LAX and SNA → MCO and wait for the spring window below.</p>
+      </div>
+    </div>
+
+    <div class="tl-item key">
+      <div class="tl-date">★ Fri Mar 26, 2027 · target to buy flights</div>
+      <div class="tl-title">Buy flights, around 5 months out</div>
+      <div class="tl-body">
+        <p>Fare guides put the sweet spot for peak-season domestic flights at roughly 3–5 months out. Some studies find the lowest fares only 2–4 weeks out, but that's a gamble when you need 14 seats on matching flights, so I'd buy at the early end of the 3–5 month range. <strong>Hard stop: Fri May 21, 2027 (3 months out).</strong> Southwest's booking window is shorter than the other airlines', so its August schedule may not appear until winter or spring. Watch for it before you decide.</p>
+      </div>
+    </div>
+
+    <div class="tl-item key">
+      <div class="tl-date">★ By Tue Jun 1, 2027 · target to buy tickets</div>
+      <div class="tl-title">Buy and link park tickets</div>
+      <div class="tl-body">
+        <p>There is no bulk or group discount to wait for (see Tickets). The 2027 prices are already published, so buying once rooms and flights are locked is fine. Decide who gets Park Hoppers, then buy. Online checkout caps at 10 tickets per order, so split into two orders or call Disney Ticketing at (407) 939-7679. Link every ticket to My Disney Experience. You'll need that for Lightning Lane.</p>
+      </div>
+    </div>
+
+    <div class="tl-item key">
+      <div class="tl-date">★ Wed Jun 23, 2027 · 6:00 AM ET</div>
+      <div class="tl-title">Dining reservations open (60 days out)</div>
+      <div class="tl-body">
+        <p>Resort guests can book the entire stay (up to 10 nights) in one sitting. Pick one "dining captain" plus a backup on a second device. Book these first: a Tusker House character meal, a group dinner on night one, and the nice-dinner night. A 15-person table is a long shot online, so plan on two back-to-back tables or call Disney Dining.</p>
+        <span class="tl-tz">6:00 AM ET = 5:00 AM CT (Chicago) = 3:00 AM PT (LA)</span>
+        <p style="margin-top:8px">The same 60-day mark is when you can register for Disney's Disability Access Service via video chat if anyone needs it.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Jul – early Aug 2027</div>
+      <div class="tl-title">Lock airport transport, car seats and sitters</div>
+      <div class="tl-body">
+        <p>Disney's free Magical Express ended in 2022. Book a paid shuttle, a private van or two rideshare XLs, and confirm car-seat policies. If anyone wants an adults-only dinner, book an in-room sitter service for the Wednesday night weeks ahead. Then look at the Mickey's Not-So-Scary Halloween Party calendar. Magic Kingdom closes early to regular guests on party nights.</p>
+      </div>
+    </div>
+
+    <div class="tl-item key">
+      <div class="tl-date">★ Sun Aug 15, 2027 · 7:00 AM ET</div>
+      <div class="tl-title">Lightning Lane window opens (7 days before check-in)</div>
+      <div class="tl-body">
+        <p>Resort guests can buy Lightning Lane Multi Pass and Single Pass selections for the whole stay on this morning. Everyone's tickets must already be linked. Off-site guests only get 3 days, so keep the entire group on property. Disney adds buffer time around dining reservations, so book dining first and Lightning Lane around it.</p>
+        <span class="tl-tz">7:00 AM ET = 6:00 AM CT = 4:00 AM PT</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Fri Aug 19, 2027</div>
+      <div class="tl-title">Online check-in</div>
+      <div class="tl-body"><p>Complete resort check-in in the My Disney Experience app, 3 days before arrival.</p></div>
+    </div>
+
+    <div class="tl-item key">
+      <div class="tl-date">Sun Aug 22 → Sat Aug 28, 2027</div>
+      <div class="tl-title">The trip</div>
+      <div class="tl-body"><p>Day-by-day plan below.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ───────── WHERE TO STAY ───────── -->
+<section class="d27-section" id="d27-stay">
+  <div class="section-header">
+    <span class="section-title">Where to Stay</span>
+    <span class="section-note">Disney's Animal Kingdom Lodge · Jambo House + Kidani Village</span>
+  </div>
+
+  <div class="resort-grid">
+    <div class="info-block">
+      <h4>Jambo House vs. Kidani Village</h4>
+      <p><strong>Jambo House</strong> is the original lodge with the big lobby, Boma, Jiko, the Victoria Falls lounge, Uzima Springs pool (slide, kiddie pool, hot tub) and Club Level (Kilimanjaro Club). It has standard rooms plus studios and villas. The bus stop is near the entrance, in front of the Giraffe Trail rooms.</p>
+      <p><strong>Kidani Village</strong> is all villas, with its own front desk, Sanaa restaurant and Samawati Springs pool. It's a short walk or internal shuttle from Jambo. Both buildings list 3-bedroom Grand Villas.</p>
+      <p style="margin-top:8px;"><strong>My lean:</strong> put everyone at Jambo House so there's one lobby, one bus stop and one pool deck. Use Kidani villas only if Jambo runs short of 1-bedrooms.</p>
+    </div>
+    <div class="info-block">
+      <h4>Savanna views</h4>
+      <p>Savanna-view rooms cost more and the view can only be requested, not guaranteed. Disney's own planning team suggests requesting <strong>Arusha Savanna</strong> at Jambo House or <strong>Sunset Savanna</strong> at Kidani.</p>
+      <p>For mobility needs, ask Disney about accessible rooms. Both buildings list wheelchair-accessible villas, including options with a roll-in shower.</p>
+      <div class="chip-row">
+        <a class="btn-link" href="https://disneyworld.disney.go.com/resorts/animal-kingdom-villas-jambo" target="_blank" rel="noopener">Jambo House →</a>
+        <a class="btn-link" href="https://disneyworld.disney.go.com/resorts/animal-kingdom-villas-kidani/" target="_blank" rel="noopener">Kidani Village →</a>
+        <a class="btn-link" href="https://disneyworld.disney.go.com/resorts/animal-kingdom-lodge/rates-rooms/" target="_blank" rel="noopener">All room types →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-block full" style="margin-top:4px">
+    <h4>Suggested room plan (a starting point)</h4>
+    <div class="d27-table-wrap">
+      <table class="d27-table">
+        <thead><tr><th>Family</th><th>Room type to price</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>The Laus (seniors)</td><td>Savanna-view room, Club Level if budget allows</td><td>Kilimanjaro Club lounge, a quiet retreat, close to the lobby and bus. Ask for an easy-access room near elevators.</td></tr>
+          <tr><td>The HoFrancis (seniors)</td><td>Same as above, on the same floor if possible</td><td>Keeps the grandparents together with a shared lounge.</td></tr>
+          <tr><td>The Ho's (parents)</td><td>Savanna-view room or studio</td><td>Same wing as the other seniors.</td></tr>
+          <tr><td>The Ho adult children</td><td>Studio or 2-queen room, separate from the seniors</td><td>Late nights and a short walk to the lounge. They won't disturb anyone.</td></tr>
+          <tr><td>The KimLaus (4-year-old)</td><td>1-bedroom villa</td><td>A separate bedroom for bedtime, kitchen, washer/dryer.</td></tr>
+          <tr><td>The HanaokaLaus (2-year-old + infant)</td><td>1-bedroom villa (2-bedroom if the budget stretches)</td><td>Disney's studios sleep 4 adults plus one child under 3 in a crib, but two little ones on different schedules need a door between them and the parents.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:12px; font-size:0.84rem; color:var(--muted)">Worth a quote: a 3-bedroom Grand Villa (sleeps up to 12, with a full kitchen and game room) as a shared "living room" for the families. It concentrates everyone in one reservation, so I'd treat it as optional. I couldn't pull live Aug 22–28 availability or pricing from Disney, so the numbers on the Budget section are estimates.</p>
+  </div>
+</section>
+
+<!-- ───────── DAY BY DAY ───────── -->
+<section class="d27-section" id="d27-days">
+  <div class="section-header">
+    <span class="section-title">Day-by-Day</span>
+    <span class="section-note">Loose by design: swap days, drop things</span>
+  </div>
+  <p class="d27-lede">Pacing rule for this group: one park per day for most people, back at the resort by about 1–2 pm for naps and pool, and a full rest day in the middle. Only the people with Hoppers split the day between two parks.</p>
+
+  <!-- SUN -->
+  <div class="day-card">
+    <div class="day-head">
+      <span class="day-date">Sun · Aug 22</span>
+      <span class="day-title">Land, settle, savanna sundown</span>
+      <span class="day-badge rest">Arrival · no park</span>
+    </div>
+    <div class="day-body">
+      <div class="day-col"><h5>Seniors</h5><ul>
+        <li>Check-in opens mid-afternoon. Ask for an early-ready text through the app.</li>
+        <li>Walk the lobby and savanna overlook, then Kilimanjaro Club snacks if you booked Club Level.</li>
+        <li>Early night after a travel day.</li>
+      </ul></div>
+      <div class="day-col"><h5>Young families</h5><ul>
+        <li>Pool time at Uzima Springs (slide + kiddie pool) or the walk over to Kidani's pool.</li>
+        <li>Stock the villa kitchens from the resort marketplace so mornings are easy.</li>
+        <li>Keep dinner early so the little ones aren't melting down by 8.</li>
+      </ul></div>
+      <div class="day-col"><h5>Adult kids</h5><ul>
+        <li>Drinks at the Victoria Falls lounge with the savanna lit up, or the pool bar.</li>
+        <li>Scout the other lounges. Late-night options on property are limited, so Disney Springs is the real night out.</li>
+      </ul></div>
+    </div>
+    <div class="day-foot"><strong>Dinner:</strong> group table at Boma – Flavors of Africa. A buffet is the easiest way to feed 15 people on five different schedules. Book at the 60-day window (June 23).</div>
+  </div>
+
+  <!-- MON -->
+  <div class="day-card">
+    <div class="day-head">
+      <span class="day-date">Mon · Aug 23</span>
+      <span class="day-title">Animal Kingdom, the whole crew</span>
+      <span class="day-badge">Park day 1 · Animal Kingdom</span>
+    </div>
+    <div class="day-body">
+      <div class="day-col"><h5>Seniors</h5><ul>
+        <li>Resort guests get Early Theme Park Entry, 30 minutes before opening. Go.</li>
+        <li>Kilimanjaro Safaris first thing (animals are active, it's cooler), then the Gorilla Falls trail at your own pace.</li>
+        <li>Festival of the Lion King: seated, air-conditioned, easy.</li>
+        <li>Rent a wheelchair or ECV if walking is hard. The park is large.</li>
+      </ul></div>
+      <div class="day-col"><h5>Young families</h5><ul>
+        <li>Safari, then the Wildlife Express train to Rafiki's Planet Watch for the Affection Section (petting goats and sheep).</li>
+        <li>Na'vi River Journey has no height requirement. Flight of Passage and Expedition Everest are 44" minimum, so the 4-year-old likely sits those out. Use Rider Switch so the parents can swap.</li>
+        <li>The old DinoLand kids' area is closed, so there's less here for toddlers than there used to be.</li>
+      </ul></div>
+      <div class="day-col"><h5>Adult kids</h5><ul>
+        <li>Flight of Passage and Expedition Everest early.</li>
+        <li>Lunch at Yak &amp; Yeti (Pan-Asian) or Satu'li Canteen.</li>
+        <li>Hopper option: after lunch, hop to another park for the evening.</li>
+      </ul></div>
+    </div>
+    <div class="day-foot"><strong>Meal:</strong> a Tusker House character meal (characters vary) is the easiest way to get the 4-year-old a "wow" moment. <strong>Back at the resort by ~1–2 pm.</strong></div>
+  </div>
+
+  <!-- TUE -->
+  <div class="day-card">
+    <div class="day-head">
+      <span class="day-date">Tue · Aug 24</span>
+      <span class="day-title">Magic Kingdom</span>
+      <span class="day-badge">Park day 2 · Magic Kingdom</span>
+    </div>
+    <div class="day-body">
+      <div class="day-col"><h5>Seniors</h5><ul>
+        <li>Rope drop, then Pirates, Haunted Mansion, Jungle Cruise, and the Carousel.</li>
+        <li>Long sit-down lunch out of the heat.</li>
+        <li>Head back after lunch. The bus ride is the tiring part.</li>
+      </ul></div>
+      <div class="day-col"><h5>Young families</h5><ul>
+        <li>Fantasyland is the 4-year-old's home turf: Dumbo, Peter Pan's Flight, Winnie the Pooh, Little Mermaid.</li>
+        <li>Use the Baby Care Center for feeding and changing breaks.</li>
+        <li>Fireworks only if everyone is holding up. Otherwise, bus home.</li>
+      </ul></div>
+      <div class="day-col"><h5>Adult kids</h5><ul>
+        <li>Space Mountain, Big Thunder and Seven Dwarfs Mine Train in the morning.</li>
+        <li>Hopper option: hop to EPCOT or Hollywood Studios in the evening for drinks.</li>
+      </ul></div>
+    </div>
+    <div class="day-foot"><strong>Check first:</strong> if this Tuesday falls on a Halloween-party night, the park closes early to regular guests. Look at the 2027 party calendar before locking this day. Swap with the EPCOT day if needed.</div>
+  </div>
+
+  <!-- WED -->
+  <div class="day-card">
+    <div class="day-head">
+      <span class="day-date">Wed · Aug 25</span>
+      <span class="day-title">Rest &amp; savanna day</span>
+      <span class="day-badge rest">No park</span>
+    </div>
+    <div class="day-body">
+      <div class="day-col"><h5>Seniors</h5><ul>
+        <li>Slow breakfast, savanna-watching, club lounge in the afternoon.</li>
+        <li>Optional: lunch at Sanaa in Kidani for the savanna views and bread service.</li>
+      </ul></div>
+      <div class="day-col"><h5>Young families</h5><ul>
+        <li>Pool, splash time, long naps. This day is what makes days 4 and 5 work.</li>
+        <li>Easy villa-kitchen lunches.</li>
+      </ul></div>
+      <div class="day-col"><h5>Adult kids</h5><ul>
+        <li>Take the Disney bus to Disney Springs for shopping, food and bars.</li>
+        <li>Return by Disney bus or rideshare. Check the last bus time before you go.</li>
+      </ul></div>
+    </div>
+    <div class="day-foot"><strong>Dinner:</strong> Jiko – The Cooking Place at Jambo House, the resort's signature restaurant. Pair it with an in-room sitter for the little ones if the parents want a proper adults' dinner.</div>
+  </div>
+
+  <!-- THU -->
+  <div class="day-card">
+    <div class="day-head">
+      <span class="day-date">Thu · Aug 26</span>
+      <span class="day-title">EPCOT</span>
+      <span class="day-badge">Park day 3 · EPCOT</span>
+    </div>
+    <div class="day-body">
+      <div class="day-col"><h5>Seniors</h5><ul>
+        <li>Spaceship Earth, The Land and Soarin' are all seated, calm, and air-conditioned.</li>
+        <li>World Showcase is a long walk. Rent a wheelchair or ECV for this day.</li>
+        <li>Lunch in World Showcase, then back to the resort mid-afternoon.</li>
+      </ul></div>
+      <div class="day-col"><h5>Young families</h5><ul>
+        <li>Seas with Nemo &amp; Friends, Frozen Ever After, and the water play at Journey of Water.</li>
+        <li>The Land boat ride is gentle for toddlers.</li>
+      </ul></div>
+      <div class="day-col"><h5>Adult kids</h5><ul>
+        <li>Guardians of the Galaxy: Cosmic Rewind via Lightning Lane.</li>
+        <li>Drink-and-snack lap around World Showcase. The Food &amp; Wine Festival started Aug 27 in 2026, so it may be kicking off during your trip. 2027 dates aren't confirmed.</li>
+      </ul></div>
+    </div>
+    <div class="day-foot"><strong>Evening:</strong> Luminous fireworks over the lagoon if the group still has energy.</div>
+  </div>
+
+  <!-- FRI -->
+  <div class="day-card">
+    <div class="day-head">
+      <span class="day-date">Fri · Aug 27</span>
+      <span class="day-title">Hollywood Studios + farewell dinner</span>
+      <span class="day-badge">Park day 4 · Hollywood Studios</span>
+    </div>
+    <div class="day-body">
+      <div class="day-col"><h5>Seniors</h5><ul>
+        <li>Shows are the move: Indiana Jones Epic Stunt Spectacular and Beauty and the Beast – Live on Stage.</li>
+        <li>There's little shade at this park, so head back by early afternoon.</li>
+      </ul></div>
+      <div class="day-col"><h5>Young families</h5><ul>
+        <li>Toy Story Land: Toy Story Mania, Alien Swirling Saucers, and Slinky Dog Dash (38" minimum).</li>
+        <li>Disney Jr. Play and Dance is a good fit for the 2- and 4-year-old.</li>
+      </ul></div>
+      <div class="day-col"><h5>Adult kids</h5><ul>
+        <li>Rise of the Resistance and Millennium Falcon in Galaxy's Edge, then Tower of Terror.</li>
+        <li>Monstropolis (Monsters, Inc. land) is under construction here, so check whether it's open.</li>
+      </ul></div>
+    </div>
+    <div class="day-foot"><strong>Farewell dinner:</strong> Sanaa at Kidani Village, with Indian-inspired dishes, savanna views and the famous bread service. Alternatively, a flex day if you'd rather do a second Animal Kingdom morning.</div>
+  </div>
+
+  <!-- SAT -->
+  <div class="day-card">
+    <div class="day-head">
+      <span class="day-date">Sat · Aug 28</span>
+      <span class="day-title">Home day</span>
+      <span class="day-badge rest">Travel</span>
+    </div>
+    <div class="day-body">
+      <div class="day-col"><h5>Everyone</h5><ul>
+        <li>Resort check-out and one last savanna breakfast.</li>
+        <li>Pre-book airport transport for the group.</li>
+      </ul></div>
+      <div class="day-col"><h5>Flights</h5><ul>
+        <li>Aim for departures after noon so nobody is rushed.</li>
+        <li>LAX/SNA flights are about 5 hours, so those travelers get home the same day.</li>
+      </ul></div>
+      <div class="day-col"><h5>Before you leave</h5><ul>
+        <li>Collect receipts, since you'll settle shared costs later.</li>
+        <li>Send the group photo from the resort lobby.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FLIGHTS ───────── -->
+<section class="d27-section" id="d27-flights">
+  <div class="section-header">
+    <span class="section-title">Flights</span>
+    <span class="section-note">All routes into Orlando (MCO)</span>
+  </div>
+
+  <div class="resort-grid">
+    <div class="info-block full">
+      <h4>From each home city</h4>
+      <table class="flight-table">
+        <tr><th>Origin</th><th>Nonstop to MCO?</th><th>Rough time</th><th>Notes</th></tr>
+        <tr><td><strong>BOS</strong></td><td class="fly-yes">✓ Nonstop</td><td>~3h</td><td>JetBlue is a major carrier on this route. Chase and Amex points both transfer to JetBlue.</td></tr>
+        <tr><td><strong>ORD</strong></td><td class="fly-yes">✓ Nonstop</td><td>~3h</td><td>Also check MDW for Southwest.</td></tr>
+        <tr><td><strong>LAX</strong></td><td class="fly-yes">✓ Nonstop</td><td>~5h</td><td>Lots of carriers and times.</td></tr>
+        <tr><td><strong>SNA</strong></td><td class="fly-conn">Nonstops exist</td><td>~5h</td><td>Route pages list Southwest, United, Delta, American and Frontier. Confirm nonstop vs. 1 stop for your exact day once schedules are searchable.</td></tr>
+      </table>
+    </div>
+    <div class="info-block">
+      <h4>Cash vs. points</h4>
+      <ul class="d27-list">
+        <li><strong>Points:</strong> award space is best when a schedule opens (now) and again in the final weeks. Chase Ultimate Rewards transfers to United, Southwest and JetBlue. Amex Membership Rewards transfers to Delta and JetBlue.</li>
+        <li><strong>Cash:</strong> aim for Fri Mar 26, 2027, with a hard stop of Fri May 21.</li>
+        <li>Sunday arrivals and Saturday departures can price higher. Check Aug 21 or Aug 29 if you have flexibility.</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h4>Getting from MCO to the resort</h4>
+      <p>Disney's free Magical Express ended in 2022. For 15 people with an infant, book a paid shuttle (such as Mears Connect), a private van, or two rideshare XLs, and confirm car-seat availability ahead of time. Lock it in July–early August so you aren't scrambling on arrival day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── TICKETS ───────── -->
+<section class="d27-section" id="d27-tickets">
+  <div class="section-header">
+    <span class="section-title">Tickets &amp; "Bulk Ordering"</span>
+    <span class="section-note">Straight answer: there's no group discount at your size</span>
+  </div>
+
+  <div class="resort-grid">
+    <div class="info-block">
+      <h4>What Disney's group programs actually require</h4>
+      <p>Disney's discounted group rates require booking <strong>10 or more resort hotel rooms</strong> for at least a night, or a qualifying school/youth group. You're likely at 6–7 rooms, so you don't qualify. Disney's own planning team confirms that there's no bulk-ticket discount for a group of this size. The ticket price is the same whether you buy 2 or 20.</p>
+      <p style="margin-top:8px;">So the "key date" for tickets isn't about unlocking a discount. It's about buying in one organized batch, in time to link everyone before Lightning Lane day.</p>
+    </div>
+    <div class="info-block">
+      <h4>How to buy 13–14 tickets cleanly</h4>
+      <ul class="d27-list">
+        <li>Online checkout caps at 10 tickets per order. Make two orders, or call Disney Ticketing at (407) 939-7679.</li>
+        <li>Children under 3 don't need a ticket. Ages 3–9 are the child price. Age 10+ is adult.</li>
+        <li>Pick a start date of Mon Aug 23 for a 5-day ticket, and add Park Hopper only to the tickets that need it.</li>
+        <li>Link every ticket to My Disney Experience by about June 1.</li>
+        <li>Ask a free Disney-authorized planner whether any room-and-ticket package beats buying separately.</li>
+      </ul>
+    </div>
+    <div class="info-block full">
+      <h4>What the 2027 prices look like</h4>
+      <p>Disney prices tickets by date and park. For 2027, single-day, one-park tickets run roughly <strong>$119–$189</strong>, and Animal Kingdom is typically the cheapest park. Multi-day tickets cost less per day. Park Hopper adds a premium: on a $119 day, the one-day hopper price was listed at $206. Disney raised annual-pass and peak-date prices on Oct 6, 2026, but multi-day pricing for late 2027 didn't change. Lightning Lane Multi Pass is sold separately and isn't included in tickets. Pull the exact prices for Aug 23–27 from Disney's site, since they vary by day.</p>
+      <div class="chip-row">
+        <a class="btn-link" href="https://disneyworld.disney.go.com/admission/tickets/" target="_blank" rel="noopener">Disney ticket page →</a>
+        <a class="btn-link" href="https://www.disneyfoodblog.com/2026/04/16/full-list-of-disney-world-ticket-prices-for-2027/" target="_blank" rel="noopener">2027 price calendar →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── BUDGET ───────── -->
+<section class="d27-section" id="d27-budget">
+  <div class="section-header">
+    <span class="section-title">Rough Budget</span>
+    <span class="section-note">Planning estimates, not quotes</span>
+  </div>
+
+  <div class="info-block full">
+    <div class="cost-row"><span class="label">Rooms, 6 nights, 6–7 rooms (before tax)</span><span class="amount">$26K–$37K</span></div>
+    <div class="cost-row"><span class="label">Park tickets, 13–14 people × 5 days</span><span class="amount">$7K–$10K</span></div>
+    <div class="cost-row"><span class="label">Park Hopper add-ons (4–5 people)</span><span class="amount">$300–$500</span></div>
+    <div class="cost-row"><span class="label">Lightning Lane (optional, for those who want it)</span><span class="amount">$0–$3K</span></div>
+    <div class="cost-row"><span class="label">Flights, ~14 paid seats (infant on lap)</span><span class="amount">$4K–$8K</span></div>
+    <div class="cost-row"><span class="label">Food, 6 days (a few table-service meals)</span><span class="amount">$8K–$11K</span></div>
+    <div class="cost-row"><span class="label">Airport transport</span><span class="amount">$300–$800</span></div>
+    <div class="cost-row total"><span class="label">Group total (excluding insurance and souvenirs)</span><span class="amount">≈ $46K–$70K</span></div>
+    <p style="margin-top:12px; font-size:0.82rem; color:var(--muted)">That works out to roughly $3,100–$4,700 per person across 15 people. The room range is built from Disney's listed "from" rates (studios from about $570 per night, savanna-view villas around $1,000+ per night, before tax). I couldn't pull real Aug 22–28 quotes, so get an actual quote before you commit. Ticket, flight and food figures are my estimates.</p>
+  </div>
+</section>
+
+<!-- ───────── HEADS-UP ───────── -->
+<section class="d27-section" id="d27-notes">
+  <div class="section-header">
+    <span class="section-title">Heads-Up &amp; Open Questions</span>
+    <span class="section-note">Things that could change the plan</span>
+  </div>
+
+  <div class="resort-grid">
+    <div class="info-block">
+      <h4>Weather &amp; hurricane season</h4>
+      <p>Late August in Orlando is hot, humid, and thunderstorm-prone in the afternoon, and it sits inside peak hurricane season. Keep 2–4 pm for indoor rides, shows, or the resort. Buy trip insurance for the group, ideally a policy with a cancel-for-any-reason option, and check airline and hotel change rules when you book.</p>
+    </div>
+    <div class="info-block">
+      <h4>Tropical Americas timing</h4>
+      <p>Disney has said the new Animal Kingdom land (Encanto ride, Indiana Jones ride, carousel) opens in 2027, with no date. Some outlets think it could slip to 2028. Don't plan around it. If it opens before August, expect long waits at Animal Kingdom, and use a Lightning Lane Single Pass if you want the Encanto ride.</p>
+    </div>
+    <div class="info-block">
+      <h4>Mobility</h4>
+      <p>Bus-only transport and big parks are the main challenges. Rent a wheelchair or ECV for the long days (EPCOT, Animal Kingdom), and ask Disney whether the Disability Access Service fits anyone in the group. You can register up to 60 days out.</p>
+    </div>
+    <div class="info-block">
+      <h4>Items I couldn't verify</h4>
+      <ul class="d27-list">
+        <li>Live Aug 22–28 availability and exact room rates</li>
+        <li>5-day ticket and Park Hopper add-on price for your dates</li>
+        <li>2027 Halloween-party and Food &amp; Wine Festival dates</li>
+        <li>Opening hours for specific restaurants and bars</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── SOURCES ───────── -->
+<section class="d27-section" id="d27-sources">
+  <div class="section-header">
+    <span class="section-title">Sources</span>
+    <span class="section-note">Everything the timeline and tickets advice rests on</span>
+  </div>
+  <div class="info-block full">
+    <div class="d27-sources">
+      <p><a href="https://plandisney.disney.go.com/question/park-ticket-discounts-groups-disney-world-group-minimum-478891" target="_blank" rel="noopener">Disney planDisney: group discount requires 10+ resort rooms</a></p>
+      <p><a href="https://plandisney.disney.go.com/question/purchase-group-tickets-adults-446318" target="_blank" rel="noopener">Disney planDisney: 10-ticket online limit, call Ticketing for more</a></p>
+      <p><a href="https://disneyparknerds.com/disney-world-tickets-group-rates/" target="_blank" rel="noopener">Disney Park Nerds: how group ticket rates work</a></p>
+      <p><a href="https://disneytouristblog.com/2027-disney-world-resorts-packages-park-tickets-now-on-sale-heres-whats-missing-returning" target="_blank" rel="noopener">Disney Tourist Blog: 2027 packages and tickets on sale</a></p>
+      <p><a href="https://www.disneyfoodblog.com/2026/04/16/full-list-of-disney-world-ticket-prices-for-2027/" target="_blank" rel="noopener">Disney Food Blog: 2027 ticket prices</a></p>
+      <p><a href="https://www.wdwinfo.com/news-stories/walt-disney-world-raises-ticket-annual-pass-quick-service-dining-prices/" target="_blank" rel="noopener">WDWInfo: Oct 6, 2026 price changes</a></p>
+      <p><a href="https://www.disneyfoodblog.com/2026/02/06/everything-you-need-to-know-about-disney-worlds-lightning-lane-hotel-perk/" target="_blank" rel="noopener">Disney Food Blog: 7-day Lightning Lane window</a></p>
+      <p><a href="https://www.attractiontickets.com/en/latest-news/orlando/walt-disney-world-tickets/ultimate-walt-disney-world-resort-checklist" target="_blank" rel="noopener">Resort checklist: 60-day dining, DAS, online check-in</a></p>
+      <p><a href="https://disneyworld.disney.go.com/resorts/animal-kingdom-lodge/amenities/" target="_blank" rel="noopener">Disney: Animal Kingdom Lodge refurbishment dates</a></p>
+      <p><a href="https://disneyworld.disney.go.com/resorts/animal-kingdom-lodge/rates-rooms/" target="_blank" rel="noopener">Disney: Animal Kingdom Lodge rooms</a></p>
+      <p><a href="https://plandisney.disney.go.com/question/planing-stay-akl-late-nov-jambo-rooms-renovated-recommend-629391" target="_blank" rel="noopener">Disney planDisney: Sunset / Arusha savanna requests</a></p>
+      <p><a href="https://mickeyvisit.com/disney-world-new-land-openings-confirmed-october-1-2026/" target="_blank" rel="noopener">Mickey Visit: Tropical Americas confirmed for 2027</a></p>
+      <p><a href="https://insidethemagic.net/2026/08/disney-world-in-2027-every-new-ride-land-and-hotel-addition-scheduled-so-far-sb1/" target="_blank" rel="noopener">Inside the Magic: 2027 openings and the 2028 possibility</a></p>
+      <p><a href="https://mickeyvisit.com/?p=107308" target="_blank" rel="noopener">Mickey Visit: 2026 Food &amp; Wine and Halloween party dates</a></p>
+      <p><a href="https://www.going.com/guides/how-far-in-advance-can-you-book-a-flight" target="_blank" rel="noopener">Going: when airlines open bookings and when to buy</a></p>
+      <p><a href="https://www.aol.com/articles/best-time-actually-book-flights-140200706.html" target="_blank" rel="noopener">Award booking timing</a></p>
+      <p><a href="https://www.southwest.com/en/flights/flights-from-orange-county-santa-ana-to-orlando" target="_blank" rel="noopener">Southwest: SNA to Orlando</a></p>
+      <p><a href="https://spectrumlocalnews.com/orlando/news/2022/01/12/disney-ends-magical-express" target="_blank" rel="noopener">Spectrum News: Magical Express ends</a></p>
+      <p><a href="https://www.disneytouristblog.com/mears-connect-review/" target="_blank" rel="noopener">Disney Tourist Blog: Mears Connect review</a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+</div><!-- /tab-disney2027 -->
+
 <!-- FOOTER -->
 <footer>
   <p>Lau Family Reunion Trip Planner · Built for internal use</p>
@@ -1511,4 +2216,843 @@
   </p>
 </footer>
 
+<!-- ══════════════════════════════════════════
+     FLOATING NOTES PANEL
+══════════════════════════════════════════ -->
+<div id="notes-panel" class="notes-panel notes-collapsed">
+
+  <!-- Toggle bar -->
+  <button class="notes-toggle" id="notes-toggle" aria-label="Toggle notes panel">
+    <span class="notes-toggle-icon">✏️</span>
+    <span class="notes-toggle-label">Family Notes</span>
+    <span class="notes-badge" id="notes-badge" style="display:none"></span>
+    <span class="notes-chevron" id="notes-chevron">▲</span>
+  </button>
+
+  <!-- Panel body -->
+  <div class="notes-body" id="notes-body">
+    <div class="notes-header-row">
+      <span class="notes-title">Trip Notes &amp; Votes</span>
+      <div class="notes-actions">
+        <button class="notes-btn notes-btn-clear" id="notes-clear" title="Clear all notes">Clear</button>
+        <button class="notes-btn notes-btn-download" id="notes-download" title="Download as .txt">⬇ Download .txt</button>
+      </div>
+    </div>
+
+    <div class="notes-entries" id="notes-entries">
+      <!-- entries rendered by JS -->
+    </div>
+
+    <div class="notes-compose">
+      <input
+        type="text"
+        class="notes-name-input"
+        id="notes-name"
+        placeholder="Your name (optional)"
+        maxlength="40"
+      />
+      <div class="notes-textarea-wrap">
+        <textarea
+          class="notes-textarea"
+          id="notes-text"
+          placeholder="Add a note, vote, or question about any destination…"
+          rows="3"
+          maxlength="1000"
+        ></textarea>
+        <span class="notes-charcount" id="notes-charcount">0 / 1000</span>
+      </div>
+      <button class="notes-submit" id="notes-submit">Add Note</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NOTES STYLES ══ -->
+<style>
+  /* push page content up so panel doesn't cover footer */
+  body { padding-bottom: 60px; }
+  body.notes-open { padding-bottom: 420px; }
+
+  .notes-panel {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 1000;
+    font-family: 'Outfit', sans-serif;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* ── Toggle bar ── */
+  .notes-toggle {
+    width: 100%;
+    display: flex; align-items: center; gap: 10px;
+    background: var(--deep-green);
+    color: var(--sand);
+    border: none; cursor: pointer;
+    padding: 13px 20px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem; font-weight: 500;
+    letter-spacing: 0.03em;
+    border-top: 2px solid var(--gold);
+    transition: background 0.2s;
+  }
+  .notes-toggle:hover { background: #1e3630; }
+  .notes-toggle-icon { font-size: 1rem; }
+  .notes-toggle-label { flex: 1; text-align: left; }
+  .notes-badge {
+    background: var(--terracotta);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 20px;
+    min-width: 20px;
+    text-align: center;
+  }
+  .notes-chevron {
+    font-size: 0.7rem;
+    transition: transform 0.3s;
+    opacity: 0.7;
+  }
+  .notes-collapsed .notes-chevron { transform: none; }
+  .notes-open-state .notes-chevron { transform: rotate(180deg); }
+
+  /* ── Panel body ── */
+  .notes-body {
+    background: var(--warm-white);
+    border-top: 1px solid var(--light-border);
+    max-height: 360px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .notes-collapsed .notes-body { display: none; }
+
+  .notes-header-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 20px 10px;
+    border-bottom: 1px solid var(--light-border);
+    flex-shrink: 0;
+  }
+  .notes-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .notes-actions { display: flex; gap: 8px; }
+  .notes-btn {
+    font-size: 0.72rem; font-family: 'Outfit', sans-serif;
+    font-weight: 500; padding: 4px 12px; border-radius: 6px;
+    border: 1px solid var(--light-border);
+    cursor: pointer; transition: all 0.15s;
+  }
+  .notes-btn-clear { background: white; color: var(--muted); }
+  .notes-btn-clear:hover { background: #fdf0ed; border-color: var(--terracotta); color: var(--terracotta); }
+  .notes-btn-download { background: var(--deep-green); color: var(--sand); border-color: var(--deep-green); }
+  .notes-btn-download:hover { background: #1e3630; }
+
+  /* ── Entry list ── */
+  .notes-entries {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .notes-entries:empty::after {
+    content: 'No notes yet — be the first to weigh in! 🌴';
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-align: center;
+    padding: 20px 0;
+    font-style: italic;
+  }
+  .note-entry {
+    background: var(--cream);
+    border: 1px solid var(--light-border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    position: relative;
+  }
+  .note-entry-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 4px;
+  }
+  .note-author {
+    font-size: 0.72rem; font-weight: 600;
+    color: var(--deep-green);
+  }
+  .note-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem; color: var(--muted);
+  }
+  .note-text {
+    font-size: 0.84rem; color: var(--charcoal);
+    line-height: 1.55; white-space: pre-wrap; word-break: break-word;
+  }
+  .note-delete {
+    position: absolute; top: 8px; right: 10px;
+    background: none; border: none; cursor: pointer;
+    font-size: 0.75rem; color: var(--muted);
+    opacity: 0; transition: opacity 0.15s;
+    padding: 2px 5px; border-radius: 4px;
+  }
+  .note-entry:hover .note-delete { opacity: 1; }
+  .note-delete:hover { background: #fdf0ed; color: var(--terracotta); }
+
+  /* ── Compose area ── */
+  .notes-compose {
+    flex-shrink: 0;
+    padding: 10px 20px 14px;
+    border-top: 1px solid var(--light-border);
+    display: flex; flex-direction: column; gap: 8px;
+    background: var(--warm-white);
+  }
+  .notes-name-input {
+    width: 100%;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    padding: 7px 12px;
+    border: 1px solid var(--light-border);
+    border-radius: 6px;
+    background: white;
+    color: var(--charcoal);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .notes-name-input:focus { border-color: var(--deep-green); }
+  .notes-textarea-wrap { position: relative; }
+  .notes-textarea {
+    width: 100%; resize: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.84rem; line-height: 1.5;
+    padding: 9px 12px 24px;
+    border: 1px solid var(--light-border);
+    border-radius: 6px;
+    background: white;
+    color: var(--charcoal);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .notes-textarea:focus { border-color: var(--deep-green); }
+  .notes-charcount {
+    position: absolute; bottom: 7px; right: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem; color: var(--muted);
+    pointer-events: none;
+  }
+  .notes-submit {
+    align-self: flex-end;
+    background: var(--deep-green); color: var(--sand);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem; font-weight: 500;
+    padding: 8px 22px; border: none;
+    border-radius: 6px; cursor: pointer;
+    transition: background 0.15s;
+  }
+  .notes-submit:hover { background: #1e3630; }
+  .notes-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* ── Mobile tweaks ── */
+  @media (max-width: 600px) {
+    body.notes-open { padding-bottom: 460px; }
+    .notes-body { max-height: 400px; }
+    .notes-toggle { padding: 12px 16px; font-size: 0.8rem; }
+    .notes-compose { padding: 8px 14px 12px; }
+    .notes-entries { padding: 8px 14px; }
+    .notes-header-row { padding: 10px 14px 8px; }
+  }
+</style>
+
+<!-- ══ NOTES SCRIPT ══ -->
+<script>
+(function() {
+  const STORAGE_KEY = 'lau_family_notes_v1';
+
+  // ── State ──
+  let notes = [];
+  let isOpen = false;
+
+  // ── Elements ──
+  const panel      = document.getElementById('notes-panel');
+  const toggleBtn  = document.getElementById('notes-toggle');
+  const chevron    = document.getElementById('notes-chevron');
+  const badge      = document.getElementById('notes-badge');
+  const entriesEl  = document.getElementById('notes-entries');
+  const nameInput  = document.getElementById('notes-name');
+  const textArea   = document.getElementById('notes-text');
+  const charCount  = document.getElementById('notes-charcount');
+  const submitBtn  = document.getElementById('notes-submit');
+  const clearBtn   = document.getElementById('notes-clear');
+  const downloadBtn= document.getElementById('notes-download');
+
+  // ── Load from localStorage ──
+  function load() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      notes = raw ? JSON.parse(raw) : [];
+    } catch(e) { notes = []; }
+  }
+
+  // ── Save to localStorage ──
+  function save() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(notes)); } catch(e) {}
+  }
+
+  // ── Format timestamp ──
+  function formatTime(ts) {
+    const d = new Date(ts);
+    return d.toLocaleDateString('en-US', { month:'short', day:'numeric' }) +
+           ' · ' + d.toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit' });
+  }
+
+  // ── Render entries ──
+  function render() {
+    entriesEl.innerHTML = '';
+    notes.forEach(function(note, i) {
+      const div = document.createElement('div');
+      div.className = 'note-entry';
+      div.innerHTML =
+        '<div class="note-entry-meta">' +
+          '<span class="note-author">' + escHtml(note.author || 'Anonymous') + '</span>' +
+          '<span class="note-time">' + formatTime(note.ts) + '</span>' +
+        '</div>' +
+        '<div class="note-text">' + escHtml(note.text) + '</div>' +
+        '<button class="note-delete" data-index="' + i + '" title="Delete note">✕</button>';
+      entriesEl.appendChild(div);
+    });
+    // scroll to bottom
+    entriesEl.scrollTop = entriesEl.scrollHeight;
+
+    // badge
+    if (notes.length > 0) {
+      badge.textContent = notes.length;
+      badge.style.display = 'inline-block';
+    } else {
+      badge.style.display = 'none';
+    }
+  }
+
+  // ── Escape HTML ──
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
+  }
+
+  // ── Toggle panel ──
+  function togglePanel() {
+    isOpen = !isOpen;
+    if (isOpen) {
+      panel.classList.remove('notes-collapsed');
+      panel.classList.add('notes-open-state');
+      document.body.classList.add('notes-open');
+      textArea.focus();
+    } else {
+      panel.classList.add('notes-collapsed');
+      panel.classList.remove('notes-open-state');
+      document.body.classList.remove('notes-open');
+    }
+  }
+
+  // ── Add note ──
+  function addNote() {
+    const text = textArea.value.trim();
+    if (!text) return;
+    const author = nameInput.value.trim();
+    notes.push({ author: author, text: text, ts: Date.now() });
+    save();
+    render();
+    textArea.value = '';
+    charCount.textContent = '0 / 1000';
+    submitBtn.disabled = true;
+  }
+
+  // ── Delete note ──
+  entriesEl.addEventListener('click', function(e) {
+    const btn = e.target.closest('.note-delete');
+    if (!btn) return;
+    const idx = parseInt(btn.dataset.index, 10);
+    notes.splice(idx, 1);
+    save();
+    render();
+  });
+
+  // ── Clear all ──
+  clearBtn.addEventListener('click', function() {
+    if (notes.length === 0) return;
+    if (confirm('Clear all ' + notes.length + ' note(s)? This cannot be undone.')) {
+      notes = [];
+      save();
+      render();
+    }
+  });
+
+  // ── Download as .txt ──
+  downloadBtn.addEventListener('click', function() {
+    const lines = ['LAU FAMILY TRIP NOTES', '='.repeat(40), ''];
+    if (notes.length === 0) {
+      lines.push('No notes yet.');
+    } else {
+      notes.forEach(function(n, i) {
+        lines.push('Note #' + (i+1));
+        lines.push('Author : ' + (n.author || 'Anonymous'));
+        lines.push('Date   : ' + formatTime(n.ts));
+        lines.push('');
+        lines.push(n.text);
+        lines.push('-'.repeat(40));
+        lines.push('');
+      });
+    }
+    lines.push('');
+    lines.push('Generated: ' + new Date().toLocaleString());
+    lines.push('Lau Family Reunion Trip Planner · 2027');
+
+    const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = 'lau-family-trip-notes.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  // ── Char counter & submit state ──
+  textArea.addEventListener('input', function() {
+    const len = textArea.value.length;
+    charCount.textContent = len + ' / 1000';
+    submitBtn.disabled = textArea.value.trim().length === 0;
+  });
+
+  // ── Submit on Enter (Shift+Enter = newline) ──
+  textArea.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      if (!submitBtn.disabled) addNote();
+    }
+  });
+
+  submitBtn.addEventListener('click', addNote);
+  toggleBtn.addEventListener('click', togglePanel);
+
+  // ── Init ──
+  load();
+  render();
+  submitBtn.disabled = true;
+})();
+</script>
+
+<!-- ══════════════════════════════════════════
+     EDIT MODE
+══════════════════════════════════════════ -->
+
+<!-- Edit mode FAB (floating action button) -->
+<button id="edit-fab" class="edit-fab" title="Toggle Edit Mode" aria-label="Toggle edit mode">
+  <span class="edit-fab-icon" id="edit-fab-icon">✏️</span>
+  <span class="edit-fab-label" id="edit-fab-label">Edit Page</span>
+</button>
+
+<!-- Edit mode toolbar (appears when editing) -->
+<div id="edit-toolbar" class="edit-toolbar edit-toolbar-hidden">
+  <span class="edit-toolbar-status" id="edit-toolbar-status">✏️ Edit mode — click any text to edit</span>
+  <div class="edit-toolbar-btns">
+    <button class="edit-tb-btn edit-tb-undo" id="edit-undo" title="Undo last change">↩ Undo</button>
+    <button class="edit-tb-btn edit-tb-save" id="edit-save-html" title="Download edited page as HTML">⬇ Save HTML</button>
+    <button class="edit-tb-btn edit-tb-reset" id="edit-reset" title="Reset all edits to original">Reset All</button>
+    <button class="edit-tb-btn edit-tb-done" id="edit-done">✓ Done</button>
+  </div>
+</div>
+
+<style>
+  /* ── Edit FAB ── */
+  .edit-fab {
+    position: fixed;
+    bottom: 72px; /* sits just above notes toggle bar */
+    right: 20px;
+    z-index: 999;
+    display: flex; align-items: center; gap: 8px;
+    background: var(--charcoal);
+    color: var(--sand);
+    border: none; border-radius: 28px;
+    padding: 10px 18px 10px 14px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem; font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  }
+  .edit-fab:hover {
+    background: #1a1714;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+  .edit-fab.edit-active {
+    background: var(--terracotta);
+    color: white;
+  }
+  .edit-fab.edit-active:hover { background: #b05e38; }
+  .edit-fab-icon { font-size: 1rem; }
+  .edit-fab-label { white-space: nowrap; }
+
+  /* ── Edit toolbar ── */
+  .edit-toolbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1001;
+    background: var(--charcoal);
+    border-bottom: 2px solid var(--terracotta);
+    padding: 10px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px;
+    transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
+  }
+  .edit-toolbar-hidden { transform: translateY(-100%); pointer-events: none; }
+  .edit-toolbar-status {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .edit-toolbar-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .edit-tb-btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem; font-weight: 500;
+    padding: 6px 14px; border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.15);
+    cursor: pointer; transition: all 0.15s;
+    color: rgba(247,243,236,0.85);
+    background: rgba(255,255,255,0.07);
+  }
+  .edit-tb-btn:hover { background: rgba(255,255,255,0.14); color: white; }
+  .edit-tb-save { background: var(--forest); border-color: var(--forest); color: var(--sand); }
+  .edit-tb-save:hover { background: #2d5246; }
+  .edit-tb-done { background: var(--terracotta); border-color: var(--terracotta); color: white; }
+  .edit-tb-done:hover { background: #b05e38; }
+  .edit-tb-reset { color: #f08080; border-color: rgba(240,128,128,0.3); }
+  .edit-tb-reset:hover { background: rgba(240,128,128,0.12); color: #ff9999; }
+
+  /* when toolbar is visible, push page content down */
+  body.edit-mode-on .sticky-nav { top: 48px; }
+  body.edit-mode-on { padding-top: 48px; }
+
+  /* ── Editable region highlight ── */
+  body.edit-mode-on [contenteditable="true"] {
+    outline: 2px dashed rgba(184,146,74,0.5);
+    outline-offset: 2px;
+    border-radius: 3px;
+    cursor: text;
+    min-height: 1em;
+    transition: outline-color 0.15s, background 0.15s;
+  }
+  body.edit-mode-on [contenteditable="true"]:hover {
+    outline-color: var(--gold);
+    background: rgba(184,146,74,0.06);
+  }
+  body.edit-mode-on [contenteditable="true"]:focus {
+    outline: 2px solid var(--gold);
+    background: rgba(184,146,74,0.08);
+    box-shadow: 0 0 0 4px rgba(184,146,74,0.1);
+  }
+
+  /* ── Unsaved changes indicator ── */
+  .edit-unsaved-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    margin-left: 6px;
+    vertical-align: middle;
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .edit-fab { bottom: 68px; right: 12px; padding: 9px 14px 9px 12px; font-size: 0.74rem; }
+    .edit-toolbar { padding: 8px 14px; }
+    .edit-toolbar-status { font-size: 0.6rem; }
+    .edit-tb-btn { font-size: 0.7rem; padding: 5px 10px; }
+    body.edit-mode-on { padding-top: 44px; }
+    body.edit-mode-on .sticky-nav { top: 44px; }
+  }
+</style>
+
+<script>
+(function() {
+  const EDIT_STORAGE_KEY = 'lau_page_edits_v1';
+
+  const fab        = document.getElementById('edit-fab');
+  const fabIcon    = document.getElementById('edit-fab-icon');
+  const fabLabel   = document.getElementById('edit-fab-label');
+  const toolbar    = document.getElementById('edit-toolbar');
+  const statusEl   = document.getElementById('edit-toolbar-status');
+  const undoBtn    = document.getElementById('edit-undo');
+  const saveBtn    = document.getElementById('edit-save-html');
+  const resetBtn   = document.getElementById('edit-reset');
+  const doneBtn    = document.getElementById('edit-done');
+
+  // ── Selectors to make editable ──
+  // Targets text-bearing elements inside main content, skipping nav/footer/notes panel
+  const EDITABLE_SELECTORS = [
+    'main p',
+    'main h1, main h2, main h3, main h4',
+    'main .stat-value',
+    'main .resort-name',
+    'main .highlight-tag',
+    'main .warning-box',
+    'main .fit-name',
+    'main .cost-row .label',
+    'main .cost-row .amount',
+    'main .info-block p',
+    'main td',
+    'main .cast-card .family-name',
+    'main .cast-card .members',
+    '.hero h1',
+    '.hero-sub',
+    '.hero-eyebrow',
+    '.closing-note p',
+    'main li',
+    'main h5',
+    'main .tl-title',
+    'main .tl-date',
+    'main .day-title',
+    'main .day-date',
+    'main .day-badge',
+    'main .day-foot',
+    'main .d27-lede',
+  ].join(', ');
+
+  let editMode = false;
+  let history  = []; // stack of {selector, index, oldHtml}
+  let hasUnsaved = false;
+
+  // ── Get all editable nodes ──
+  function getEditables() {
+    return Array.from(document.querySelectorAll(EDITABLE_SELECTORS)).filter(function(el) {
+      // skip elements inside notes panel or toolbar
+      return !el.closest('#notes-panel') && !el.closest('#edit-toolbar') && !el.closest('footer');
+    });
+  }
+
+  // ── Enter edit mode ──
+  function enterEdit() {
+    editMode = true;
+    document.body.classList.add('edit-mode-on');
+    toolbar.classList.remove('edit-toolbar-hidden');
+    fab.classList.add('edit-active');
+    fabIcon.textContent = '✕';
+    fabLabel.textContent = 'Exit Edit';
+
+    getEditables().forEach(function(el, i) {
+      el.contentEditable = 'true';
+      el.dataset.editIndex = i;
+      el.addEventListener('input', onEdit);
+      el.addEventListener('blur', onBlur);
+    });
+
+    statusEl.textContent = '✏️ Edit mode — click any text to edit';
+    updateUndoBtn();
+  }
+
+  // ── Exit edit mode ──
+  function exitEdit() {
+    editMode = false;
+    document.body.classList.remove('edit-mode-on');
+    toolbar.classList.add('edit-toolbar-hidden');
+    fab.classList.remove('edit-active');
+    fabIcon.textContent = '✏️';
+    fabLabel.textContent = 'Edit Page';
+
+    getEditables().forEach(function(el) {
+      el.contentEditable = 'false';
+      el.removeEventListener('input', onEdit);
+      el.removeEventListener('blur', onBlur);
+    });
+
+    if (hasUnsaved) {
+      saveEdits();
+      hasUnsaved = false;
+    }
+  }
+
+  // ── Track edits for undo ──
+  function onEdit(e) {
+    hasUnsaved = true;
+    updateStatus();
+  }
+
+  function onBlur(e) {
+    // push to undo history on blur
+    const el = e.target;
+    const idx = el.dataset.editIndex;
+    if (idx !== undefined) {
+      history.push({ index: idx, html: el.innerHTML });
+      if (history.length > 50) history.shift();
+      updateUndoBtn();
+    }
+  }
+
+  // ── Undo ──
+  undoBtn.addEventListener('click', function() {
+    if (history.length === 0) return;
+    const last = history.pop();
+    const editables = getEditables();
+    const target = editables[parseInt(last.index, 10)];
+    if (target) {
+      target.innerHTML = last.html;
+      hasUnsaved = true;
+      updateUndoBtn();
+      updateStatus();
+    }
+  });
+
+  function updateUndoBtn() {
+    undoBtn.disabled = history.length === 0;
+    undoBtn.style.opacity = history.length === 0 ? '0.4' : '1';
+  }
+
+  function updateStatus() {
+    statusEl.innerHTML = '✏️ Editing — unsaved changes <span class="edit-unsaved-dot"></span>';
+  }
+
+  // ── Save edits to localStorage ──
+  function saveEdits() {
+    const editables = getEditables();
+    const saved = {};
+    editables.forEach(function(el, i) {
+      saved[i] = el.innerHTML;
+    });
+    try { localStorage.setItem(EDIT_STORAGE_KEY, JSON.stringify(saved)); } catch(e) {}
+  }
+
+  // ── Load saved edits ──
+  function loadEdits() {
+    try {
+      const raw = localStorage.getItem(EDIT_STORAGE_KEY);
+      if (!raw) return;
+      const saved = JSON.parse(raw);
+      const editables = getEditables();
+      Object.keys(saved).forEach(function(i) {
+        if (editables[parseInt(i, 10)]) {
+          editables[parseInt(i, 10)].innerHTML = saved[i];
+        }
+      });
+    } catch(e) {}
+  }
+
+  // ── Reset all edits ──
+  resetBtn.addEventListener('click', function() {
+    if (!confirm('Reset ALL edits? This will restore the original page content and cannot be undone.')) return;
+    try { localStorage.removeItem(EDIT_STORAGE_KEY); } catch(e) {}
+    location.reload();
+  });
+
+  // ── Save edited page as downloadable HTML ──
+  saveBtn.addEventListener('click', function() {
+    // temporarily turn off contenteditable so it doesn't appear in saved HTML
+    const editables = getEditables();
+    editables.forEach(function(el) { el.removeAttribute('contenteditable'); });
+
+    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+    // restore
+    if (editMode) {
+      editables.forEach(function(el, i) {
+        el.contentEditable = 'true';
+        el.dataset.editIndex = i;
+      });
+    }
+
+    const blob = new Blob([html], { type: 'text/html' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = 'index.html';
+    a.click();
+    URL.revokeObjectURL(url);
+
+    statusEl.textContent = '✅ Saved! Upload index.html to your GitHub repo to publish changes.';
+    hasUnsaved = false;
+  });
+
+  // ── Done button ──
+  doneBtn.addEventListener('click', exitEdit);
+
+  // ── FAB toggle ──
+  fab.addEventListener('click', function() {
+    if (editMode) exitEdit(); else enterEdit();
+  });
+
+  // ── Load saved edits on page load ──
+  loadEdits();
+
+})();
+</script>
+
+<!-- ══ TAB SWITCHING ══ -->
+<script>
+(function() {
+  var buttons = document.querySelectorAll('.tab-btn');
+  var panels  = document.querySelectorAll('.tab-panel');
+
+  function show(name, scrollToTabs) {
+    var found = false;
+    panels.forEach(function(p) {
+      var on = p.id === 'tab-' + name;
+      p.classList.toggle('active', on);
+      if (on) found = true;
+    });
+    if (!found) return;
+    buttons.forEach(function(b) {
+      b.setAttribute('aria-selected', b.dataset.tab === name ? 'true' : 'false');
+    });
+    try {
+      var url = new URL(window.location.href);
+      url.searchParams.set('tab', name);
+      history.replaceState(null, '', url.pathname + url.search + url.hash);
+    } catch (e) {}
+    if (scrollToTabs) {
+      var bar = document.getElementById('tabs-bar');
+      if (bar) window.scrollTo({ top: Math.max(0, bar.offsetTop - 1), behavior: 'smooth' });
+    }
+  }
+
+  buttons.forEach(function(b) {
+    b.addEventListener('click', function() { show(b.dataset.tab, true); });
+  });
+
+  // in-page links that point into a hidden tab open that tab first
+  document.addEventListener('click', function(e) {
+    var sw = e.target.closest('[data-switch-tab]');
+    if (sw) show(sw.getAttribute('data-switch-tab'), false);
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    var target = document.getElementById(id);
+    if (!target) return;
+    var panel = target.closest('.tab-panel');
+    if (panel && !panel.classList.contains('active')) {
+      show(panel.id.replace('tab-', ''), false);
+    }
+  });
+
+  // deep links: ?tab=compare or a #hash inside a tab
+  var initial = null;
+  try { initial = new URL(window.location.href).searchParams.get('tab'); } catch (e) {}
+  if (initial) show(initial, false);
+  if (window.location.hash) {
+    var t = document.getElementById(window.location.hash.slice(1));
+    var p = t && t.closest('.tab-panel');
+    if (p && !p.classList.contains('active')) show(p.id.replace('tab-', ''), false);
+    if (t) setTimeout(function() { t.scrollIntoView(); }, 50);
+  }
+})();
+</script>
+
 </body>
+</html>
